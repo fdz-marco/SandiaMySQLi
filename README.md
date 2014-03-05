@@ -100,7 +100,6 @@ The execution queries realize two functions: parsing and execute the query.
 #### execute()
 ```php
 <?php
-
 $q = $db->execute('SELECT * FROM test');
 print_r($q);
 // mysqli_result Object ( [current_field] => 0 [field_count] => 3 [lengths] => [num_rows] => 1 [type] => 0 ) 
