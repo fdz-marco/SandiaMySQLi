@@ -109,4 +109,22 @@ print_r($q);
 // Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
 ````
 
+## CRUD (MySQL Basic) Operations Functions
+
+* *insert(table, data)*>>			Error=false; Success:True/Last ID(Auto-increment)
+* *update(table, data, where = null, parameters = array())*>>			Error=false; Success:affected rows (0 is possible)
+* *delete(table, where = null, parameters = array())*>>			Error=false; Success:affected rows (0 is possible)
+* *select(table, data='*', where = null, operators='AND', parameters=array())*>>			Error=false; Success:results fetched array**
+
+
+
+
+
+
+
+
+
+
+
+
 
