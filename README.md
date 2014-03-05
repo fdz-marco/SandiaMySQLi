@@ -123,12 +123,26 @@ The basic mysql operations functions allow to execute the most common operations
 ####insert()
 ```php
 <?php
-$q = $db->insert("test",array("field"=>"field 001","value"=>"value 001","status"=>="1"));
+$q = $db->insert("test",array("field"=>"field 001","value"=>"value 001","status"=>"1"));
 print_r($q);
-// mysqli_result Object ( [current_field] => 0 [field_count] => 3 [lengths] => [num_rows] => 1 [type] => 0 ) 
+//Output: 1 
 ````
 
+####update()
+```php
+<?php
+$q = $db->update("test",array("field"=>"field 002"),array("field"=>"field 001"));
+print_r($q);
+//Output: 1 (Affected Rows) 
+````
 
+####delete()
+```php
+<?php
+$q = $db->delete("test",array("field"=>"field 002"));
+print_r($q);
+//Output: 1 (Affected Rows) 
+````
 
 
 
