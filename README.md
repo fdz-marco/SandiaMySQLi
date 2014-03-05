@@ -27,7 +27,7 @@ $db->open("localhost","user","password","database");
 
 Sandia MySQL have some public methods to formatting queries. These ones are used inside the class but also can be used to formatting a query outside.
 
-* *escape_string(string)* - alias from MYSQLI::real_escape_string
+* **escape_string(string)** - alias from MYSQLI::real_escape_string
 * *quote_field(string)* - quote a string with backquote, ex: \`string\`
 * *quote_value(string)* - quote a string with single quote, ex: 'string'
 * *quote_escaped_field(string)* - quote a string with backquote before escaped it
