@@ -88,6 +88,26 @@ print_r($q);
 //)
 ```
 
-## Queries 
+## Execution Operations
+
+The execution queries realize two functions: parsing and execute the query. 
+
+* *execute (sql,parameters array)* - run a query in database, and parsing if a parameters array is given.
+* *multi_execute(sql, parameters array)* - run multiple queries in database, and parsing if a parameters array is given.
+
+###Examples
+
+#### execute()
+```php
+<?php
+
+$q = $db->execute('SELECT * FROM test');
+print_r($q);
+// mysqli_result Object ( [current_field] => 0 [field_count] => 3 [lengths] => [num_rows] => 1 [type] => 0 ) 
+
+$q = $db->fetch();
+print_r($q);
+// Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
+````
 
 
