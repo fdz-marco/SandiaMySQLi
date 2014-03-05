@@ -28,22 +28,22 @@ $db->open("localhost","user","password","database");
 Sandia MySQL have some public methods to formatting queries. These ones are used inside the class but also can be used to formatting a query outside.
 
 * **escape_string(string)** - alias from MYSQLI::real_escape_string
-* *quote_field(string)* - quote a string with backquote, ex: \`string\`
-* *quote_value(string)* - quote a string with single quote, ex: 'string'
-* *quote_escaped_field(string)* - quote a string with backquote before escaped it
-* *quote_escaped_value(string)* - quote a string before escaped it
-* *quote_fields(string)* - quote an array of strings with backquote, ex: \`string\`,\`string\`,\`string\`
-* *quote_values(string)* - quote an array of strings with single quote, ex: 'string','string','string'
-* *quote_escaped_fields(string)* - quote an array of strings with backquote before escaped it
-* *quote_escaped_values(string)* - quote an array of strings with single quote before escaped it
+* **quote_field(string)** - quote a string with backquote, ex: \`string\`
+* **quote_value(string)** - quote a string with single quote, ex: 'string'
+* **quote_escaped_field(string)** - quote a string with backquote before escaped it
+* **quote_escaped_value(string)** - quote a string before escaped it
+* **quote_fields(string)** - quote an array of strings with backquote, ex: \`string\`,\`string\`,\`string\`
+* **quote_values(string)** - quote an array of strings with single quote, ex: 'string','string','string'
+* **quote_escaped_fields(string)** - quote an array of strings with backquote before escaped it
+* **quote_escaped_values(string)** - quote an array of strings with single quote before escaped it
  
 ## Query parsing
 
 The Sandia MySQL *String ecape and String formatting functions* are used to give format to fields and values previous its use in a query. The *Query Parsing Functions* are used to formatting the query itself.
 
-* *quote_parameters(array('field'=>'value', 'field'=>'value')* - quote an array of \`field\` = 'value'
-* *parse_query(string)* - parsing a query quoting ? ('') or ignoring quote #
-* *parse_where(array('field'=>'value'), operators)* - quote where with the passed operators (AND as default). NULL is prepared to ignore quoting, you can also ignore quoting usin (&), ex: &string&.
+* **quote_parameters(array('field'=>'value', 'field'=>'value')** - quote an array of \`field\` = 'value'
+* **parse_query(string)** - parsing a query quoting ? ('') or ignoring quote #
+* **parse_where(array('field'=>'value'), operators)** - quote where with the passed operators (AND as default). NULL is prepared to ignore quoting, you can also ignore quoting usin (&), ex: &string&.
 
 ### Examples
 
@@ -92,8 +92,8 @@ print_r($q);
 
 The execution queries realize two functions: parsing and execute the query. 
 
-* *execute (sql,parameters array)* - run a query in database, and parsing if a parameters array is given.
-* *multi_execute(sql, parameters array)* - run multiple queries in database, and parsing if a parameters array is given.
+* **execute (sql,parameters array)** - run a query in database, and parsing if a parameters array is given.
+* **multi_execute(sql, parameters array)** - run multiple queries in database, and parsing if a parameters array is given.
 
 ###Examples
 
@@ -111,10 +111,10 @@ print_r($q);
 
 ## CRUD (MySQL Basic) Operations Functions
 
-* *insert(table, data)*>>			Error=false; Success:True/Last ID(Auto-increment)
-* *update(table, data, where = null, parameters = array())*>>			Error=false; Success:affected rows (0 is possible)
-* *delete(table, where = null, parameters = array())*>>			Error=false; Success:affected rows (0 is possible)
-* *select(table, data='+', where = null, operators='AND', parameters=array())*>>			Error=false; Success:results fetched array**
+* **insert(table, data)** - Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS.
+* **update(table, data, where = null, parameters = array())** - Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
+* **delete(table, where = null, parameters = array())** - Delete a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
+* **select(table, data='*', where = null, operators='AND', parameters=array())** - Select registers in a table. Returning: FALSE on ERROR, Results fetched array on SUCCESS.
 
 
 
