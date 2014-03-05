@@ -1,7 +1,7 @@
 ### Welcome to the Sandia MySQLi Database Wrapper 
 
 # What is this?
-*Sandia MySQLi* is a wrapper for MySQL Databases written in PHP to make simple some of the more recurrent tasks in databases management.
+![Sandia MySQLi](https://raw.github.com/inventtoo/SandiaMySQLi/master/design/SandiaMySQLi_mini.png "Logo Sandia MySQLi") *Sandia MySQLi* is a wrapper for MySQL Databases written in PHP to make simple some of the more recurrent tasks in databases management.
 
 *Sandia MySQLi Database Wrapper* is maintained by Marco Fernandez member of the team [inventtoo.com](http://inventtoo.com), please feel free to visite us and send your comments to us.
 
