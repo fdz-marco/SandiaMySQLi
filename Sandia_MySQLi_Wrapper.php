@@ -63,6 +63,7 @@
 		_fetch
 		_fetch_row
 		_fetch_column
+		fetch		      Public alias of function _fetch
 		fetch_single>>        Error=false; Success: result string** (0 is possible)
 		fetch_all>>           Error=false; Success:
 		fetch_rows>>          Error=false; Success: $data[#row][column_name]
@@ -431,6 +432,10 @@ class SandiaMySQLi {
 		return isset($data[$i]) ? $data[$i] : false;
 	}
 
+	public function fetch($fetch=self::MYSQLI_ROW_ASSOC) {
+		return $this->_fetch($fetch);
+	}
+	
 	public function fetch_single($sql, $parameters = array()){
 		$this->execute($sql, $parameters);
 		if(!$this->_result) return false; // Error
