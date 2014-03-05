@@ -159,10 +159,36 @@ print_r($l['query']);
 ####select()
 ```php
 <?php
+$q = $db->select("test",array('field','value'));
+print_r($q);
+//Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 ) )
 
+$l = $db->get_last_log();
+print_r($l['query']);
+//SELECT `field`,`value` FROM `test`
 ````
 
+```php
+<?php
+$q = $db->select("test",'*',array('field'=>'like %f%','value'=>'is not null','status'=>'&1&'));
+print_r($q);
+//Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
 
+$l = $db->get_last_log();
+print_r($l['query']);
+//SELECT * FROM `test` WHERE `field` like '%f%' AND `value` is not NULL AND `status` = 1
+````
+
+```php
+<?php
+$q = $db->select("test",'*',array('status'=>'> &0&'));
+print_r($q);
+//Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
+
+$l = $db->get_last_log();
+print_r($l['query']);
+//SELECT * FROM `test` WHERE `status` > 0
+````
 
 
 
