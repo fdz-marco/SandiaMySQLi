@@ -159,6 +159,7 @@ print_r($l['query']);
 ####select()
 ```php
 <?php
+//---------------- Method 1
 $q = $db->select("test",array('field','value'));
 print_r($q);
 //Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 ) )
@@ -166,10 +167,8 @@ print_r($q);
 $l = $db->get_last_log();
 print_r($l['query']);
 //SELECT `field`,`value` FROM `test`
-````
 
-```php
-<?php
+//---------------- Method 2
 $q = $db->select("test",'*',array('field'=>'like %f%','value'=>'is not null','status'=>'&1&'));
 print_r($q);
 //Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
@@ -177,10 +176,8 @@ print_r($q);
 $l = $db->get_last_log();
 print_r($l['query']);
 //SELECT * FROM `test` WHERE `field` like '%f%' AND `value` is not NULL AND `status` = 1
-````
 
-```php
-<?php
+//---------------- Method 3
 $q = $db->select("test",'*',array('status'=>'> &0&'));
 print_r($q);
 //Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
