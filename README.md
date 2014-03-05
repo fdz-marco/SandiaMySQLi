@@ -125,7 +125,11 @@ The basic mysql operations functions allow to execute the most common operations
 <?php
 $q = $db->insert("test",array("field"=>"field 001","value"=>"value 001","status"=>"1"));
 print_r($q);
-//Output: 1 
+//Output: 1
+
+$l = $db->get_last_log();
+print_r($l['query']);
+//INSERT INTO `test` (`field`,`value`,`status`) VALUES ('field 001','value 001','1')
 ````
 
 ####update()
@@ -134,6 +138,10 @@ print_r($q);
 $q = $db->update("test",array("field"=>"field 002"),array("field"=>"field 001"));
 print_r($q);
 //Output: 1 (Affected Rows) 
+
+$l = $db->get_last_log();
+print_r($l['query']);
+//UPDATE `test` SET `field` = 'field 002' WHERE `field` = 'field 001'
 ````
 
 ####delete()
@@ -142,11 +150,17 @@ print_r($q);
 $q = $db->delete("test",array("field"=>"field 002"));
 print_r($q);
 //Output: 1 (Affected Rows) 
+
+$l = $db->get_last_log();
+print_r($l['query']);
+//DELETE FROM `test` WHERE `field` = 'field 002'
 ````
 
+####select()
+```php
+<?php
 
-
-
+````
 
 
 
