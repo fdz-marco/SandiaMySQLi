@@ -114,7 +114,7 @@ print_r($q);
 * *insert(table, data)*>>			Error=false; Success:True/Last ID(Auto-increment)
 * *update(table, data, where = null, parameters = array())*>>			Error=false; Success:affected rows (0 is possible)
 * *delete(table, where = null, parameters = array())*>>			Error=false; Success:affected rows (0 is possible)
-* *select(table, data='*', where = null, operators='AND', parameters=array())*>>			Error=false; Success:results fetched array**
+* *select(table, data='+', where = null, operators='AND', parameters=array())*>>			Error=false; Success:results fetched array**
 
 
 
