@@ -199,8 +199,3 @@ $l = $db->get_last_query();
 print_r($l);
 //SELECT * FROM `test` WHERE `status` > 0
 ````
-
-
-
-
-
