@@ -111,10 +111,22 @@ print_r($q);
 
 ## CRUD (MySQL Basic) Operations Functions
 
+The basic mysql operations functions allow to execute the most common operations in databases.
+
 * **insert(table, data)** - Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS.
 * **update(table, data, where = null, parameters = array())** - Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
 * **delete(table, where = null, parameters = array())** - Delete a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
 * **select(table, data='*', where = null, operators='AND', parameters=array())** - Select registers in a table. Returning: FALSE on ERROR, Results fetched array on SUCCESS.
+
+###Examples
+
+####insert()
+```php
+<?php
+$q = $db->insert("test",array("field"=>"field 001","value"=>"value 001","status"=>="1"));
+print_r($q);
+// mysqli_result Object ( [current_field] => 0 [field_count] => 3 [lengths] => [num_rows] => 1 [type] => 0 ) 
+````
 
 
 
