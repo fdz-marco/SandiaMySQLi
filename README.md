@@ -23,7 +23,7 @@ $db->open("localhost","user","password","database");
 
 # Documentation
 
-## Strings escape functions / \`Fields\` and 'Values' formatting functions
+## Strings escape Functions / \`Fields\` and 'Values' formatting Functions
 
 Sandia MySQL have some public methods to formatting queries. These ones are used inside the class but also can be used to formatting a query outside.
 
@@ -37,7 +37,7 @@ Sandia MySQL have some public methods to formatting queries. These ones are used
 * **quote_escaped_fields(string)** - quote an array of strings with backquote before escaped it
 * **quote_escaped_values(string)** - quote an array of strings with single quote before escaped it
  
-## Query parsing
+## Query Parsing Functions
 
 The Sandia MySQL *String ecape and String formatting functions* are used to give format to fields and values previous its use in a query. The *Query Parsing Functions* are used to formatting the query itself.
 
@@ -88,7 +88,7 @@ print_r($q);
 //)
 ```
 
-## Execution Operations
+## Execution Operations Functions
 
 The execution queries realize two functions: parsing and execute the query. 
 
@@ -108,6 +108,19 @@ $q = $db->fetch();
 print_r($q);
 // Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
 ````
+
+## Log and Status Functions
+
+* **get_last_error_id()** - 
+* **get_last_error()** - 
+* **get_last_query()** - 
+* **get_query_count()** - 
+* **get_execution_time()** - 
+* **get_affected_rows()** - 
+* **get_last_id()** - 
+* **get_log()** - 
+* **get_last_log()** - 
+
 
 ## CRUD (MySQL Basic) Operations Functions
 
