@@ -127,8 +127,8 @@ $q = $db->insert("test",array("field"=>"field 001","value"=>"value 001","status"
 print_r($q);
 //Output: 1
 
-$l = $db->get_last_log();
-print_r($l['query']);
+$l = $db->get_last_query();
+print_r($l);
 //INSERT INTO `test` (`field`,`value`,`status`) VALUES ('field 001','value 001','1')
 ````
 
@@ -139,8 +139,8 @@ $q = $db->update("test",array("field"=>"field 002"),array("field"=>"field 001"))
 print_r($q);
 //Output: 1 (Affected Rows) 
 
-$l = $db->get_last_log();
-print_r($l['query']);
+$l = $db->get_last_query();
+print_r($l);
 //UPDATE `test` SET `field` = 'field 002' WHERE `field` = 'field 001'
 ````
 
@@ -151,8 +151,8 @@ $q = $db->delete("test",array("field"=>"field 002"));
 print_r($q);
 //Output: 1 (Affected Rows) 
 
-$l = $db->get_last_log();
-print_r($l['query']);
+$l = $db->get_last_query();
+print_r($l);
 //DELETE FROM `test` WHERE `field` = 'field 002'
 ````
 
@@ -164,8 +164,8 @@ $q = $db->select("test",array('field','value'));
 print_r($q);
 //Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 ) )
 
-$l = $db->get_last_log();
-print_r($l['query']);
+$l = $db->get_last_query();
+print_r($l);
 //SELECT `field`,`value` FROM `test`
 
 //---------------- Method 2
@@ -173,8 +173,8 @@ $q = $db->select("test",'*',array('field'=>'like %f%','value'=>'is not null','st
 print_r($q);
 //Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
 
-$l = $db->get_last_log();
-print_r($l['query']);
+$l = $db->get_last_query();
+print_r($l);
 //SELECT * FROM `test` WHERE `field` like '%f%' AND `value` is not NULL AND `status` = 1
 
 //---------------- Method 3
@@ -182,8 +182,8 @@ $q = $db->select("test",'*',array('status'=>'> &0&'));
 print_r($q);
 //Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
 
-$l = $db->get_last_log();
-print_r($l['query']);
+$l = $db->get_last_query();
+print_r($l);
 //SELECT * FROM `test` WHERE `status` > 0
 ````
 
