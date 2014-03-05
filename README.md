@@ -3,7 +3,7 @@
 # What is this?
 *Sandia MySQLi* is a wrapper for MySQL Databases written in PHP to make simple some of the more recurrent tasks in databases management.
 
-*Sandia MySQLi Database Wrapper* is maintained by Marco Fernandez member of the team inventtoo.com, please feel free to visite us and send your comments to us.
+*Sandia MySQLi Database Wrapper* is maintained by Marco Fernandez member of the team [inventtoo.com](http://inventtoo.com), please feel free to visite us and send your comments to us.
 
 This project have a MIT License, so you can modify it, redistribute it, print it, burn it, or whatever you want.
 
@@ -23,7 +23,7 @@ $db->open("localhost","user","password","database");
 
 # Documentation
 
-## Strings escape / \`Fields\` and 'Values' formatting
+## Strings escape functions / \`Fields\` and 'Values' formatting functions
 
 Sandia MySQL have some public methods to formatting queries. These ones are used inside the class but also can be used to formatting a query outside.
 
@@ -39,7 +39,7 @@ Sandia MySQL have some public methods to formatting queries. These ones are used
  
 ## Query parsing
 
-The Sandia MySQL *String ecape and String formatting* are used to give format to the queries previous its use. Three are the most elemental functions.
+The Sandia MySQL *String ecape and String formatting functions* are used to give format to fields and values previous its use in a query. The *Query Parsing Functions* are used to formatting the query itself.
 
 * *quote_parameters(array('field'=>'value', 'field'=>'value')* - quote an array of \`field\` = 'value'
 * *parse_query(string)* - parsing a query quoting ? ('') or ignoring quote #
