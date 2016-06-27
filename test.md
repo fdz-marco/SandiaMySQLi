@@ -22,12 +22,13 @@ $db->open("localhost","user","password","database");
 ```
 ## Functions Catalog
 
-### Database
-|Fn|Function Name|Inputs
-|---|---|---|---|
-|open|($host, $user, $pswd, $db, $port='', $charset='utf8')|||
-|close||||
-### Static
+|Fn      |Function Name|Inputs                                               |
+| ---    | ---         |---                                                  |
+|Database|open         |($host, $user, $pswd, $db, $port='', $charset='utf8')|
+|Database|close        |                                                     |
+|Static  |callStatic   |                                                     |
+
+
 ### Getters / Setters
 - get_cmd_connection
 - get_last_error_id
