@@ -22,30 +22,28 @@ $db->open("localhost","user","password","database");
 ```
 ## Functions Catalog
 
-|Fn      |Function Name|Inputs                                               |
-| ---    | ---         |---                                                  |
-|Database|open         |($host, $user, $pswd, $db, $port='', $charset='utf8')|
-|Database|close        |                                                     |
-|Static  |callStatic   |                                                     |
+### Database
+|Fn|Function Name|Input|
+| --- | --- | --- |
+|Database           |open                 |($host, $user, $pswd, $db, $port='', $charset='utf8')|
+|Database           |close                |                                                     |
+|Static             |callStatic           |($name,$arguments)|
+|Getters / Setters  |get_cmd_connection   |-                                                    |
+|Getters / Setters  |get_last_error_id    |-                                                    |
+|Getters / Setters  |get_last_error       |-                                                    |
+|Getters / Setters  |get_last_query       |-                                                    |
+|Getters / Setters  |get_query_count      |-                                                    |
+|Getters / Setters  |get_time_execution   |-                                                    |
+|Getters / Setters  |get_time_connection  |-                                                    |
+|Getters / Setters  |get_time_last_query  |-                                                    |
+|Getters / Setters  |get_affected_rows    |-                                                    |
+|Getters / Setters  |get_last_id          |-                                                    |
+|Getters / Setters  |get_log              |-                                                    |
+|Getters / Setters  |get_last_log         |-                                                   |
+|Getters / Setters  |set_log              |($value = true)                                      |
+|Transactions       |transaction_begin    |-                                                    |
+|Transactions       |transaction_commit   |-                                                    |
+|Transactions       |transaction_rollback |-                                                    |
+|Transactions       |rewind               |-                                                    |
+|Transactions       |free                 |-                                                    |
 
-
-### Getters / Setters
-- get_cmd_connection
-- get_last_error_id
-- get_last_error
-- get_last_query
-- get_query_count
-- get_time_execution
-- get_time_connection
-- get_time_last_query
-- get_affected_rows
-- get_last_id
-- get_log
-- get_last_log
-- set_log
-### Commit / Roll-back / Rewind / Free
--transaction_begin
--transaction_commit
--transaction_rollback
--rewind
--free
