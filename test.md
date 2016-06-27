@@ -112,12 +112,11 @@ The execution queries realize two functions: parsing and execute the query.
 
 |Function Name|Input|Description|
 | --- | --- | --- |
-| ----------------- | ----------------- | ----------------- | ----------------- |
-|Execution Operation|_query               |($query)|Return:: $_connection->query($query)|
-|Execution Operation|_multi_query         |($query)|Return:: $_connection->multi_query($query)|
-|Execution Operation|_log                 |($transaction='')|Add transaction to the log array.|
-|Execution Operation|execute              |($sql, $parameters = array())|Run a query in database, and parsing if a parameters array is given. **Using self::parse_query()|
-|Execution Operation|multi_execute        |($sql, $parameters = array())|Run multiple queries in database, and parsing if a parameters array is given. **Using self::parse_query()|
+|_query               |($query)|Return:: $_connection->query($query)|
+|_multi_query         |($query)|Return:: $_connection->multi_query($query)|
+|_log                 |($transaction='')|Add transaction to the log array.|
+|execute              |($sql, $parameters = array())|Run a query in database, and parsing if a parameters array is given. **Using self::parse_query()|
+|multi_execute        |($sql, $parameters = array())|Run multiple queries in database, and parsing if a parameters array is given. **Using self::parse_query()|
 
 ###Examples
 
@@ -131,14 +130,36 @@ print_r($q);
 $q = $db->fetch();
 print_r($q);
 // Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
-````
+```
+## Fetching Results   
+|Function Name|Input|Description|
+| --- | --- | --- |
+|_fetch               |($fetch=self::MYSQLI_ROW_ASSOC)||
+|_fetch_multi         |($fetch=self::MYSQLI_ROW_ASSOC)||
+|_fetch_row           |($i=0)|Alias _fetch, return number of row.|
+|_fetch_column        |($i=0)|Alias _fetch, return number of column.|
+|fetch                |($fetch=self::MYSQLI_ROW_ASSOC)|Alias _fetch_multi.|
 
+|Fetch Constant|Data Format|
+| --- | --- |
+|MYSQLI_ALL          |	$data[#row][#column/column_name]|
+|MYSQLI_ROW_ASSOC    |  $data[#row][column_name] ::Usually used::|
+|MYSQLI_ROW_NUM      |  $data[#row][#column]|
+|MYSQLI_ROW_BOTH     |  This is the equivalence of MYSQLI_ALL|
+|MYSQLI_COLUMN_ASSOC |  $data[column_name][#row] ::Field used::|
+|MYSQLI_COLUMN_NUM   |  $data[#column][#row]|
+| MYSQLI_COLUMN_BOTH |  $data[column_name/#column][#row/#row] ::Not optimal::|
 
+## CRUD (MySQLi Basic Operations) Operations Functions
+The basic MySQLi operations functions allow to execute the most common operations in databases.
+(Create [Insert], Read [Select], Update, Delete)
 
-
-## CRUD (MySQL Basic) Operations Functions
-
-The basic mysql operations functions allow to execute the most common operations in databases.
+|Function Name|Input|Description|
+| --- | --- | --- |
+|select               |($table, $data='*', $where = null, $operators='AND', $parameters = array())|Error=false; Success:results fetched array**|
+|insert               |($table, $data)|Error=false; Success:True/Last ID(Auto-increment)|
+|delete               |($table, $where = null, $operators='AND', $parameters = array())|Error=false; Success:affected rows (0 is possible)|
+|update               |($table, $data, $where = null, $operators='AND', $parameters = array())|Error=false; Success:affected rows (0 is possible)|
 
 * **insert(table, data)** - Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS.
 * **update(table, data, where = null, parameters = array())** - Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
@@ -229,12 +250,6 @@ print_r($l);
 |Transactions       |rewind               |()||
 |Transactions       |free                 |()||
 | ----------------- | ----------------- | ----------------- | ----------------- |
-|Fetching Results   |_fetch               |($fetch=self::MYSQLI_ROW_ASSOC)||
-|Fetching Results   |_fetch_multi         |($fetch=self::MYSQLI_ROW_ASSOC)||
-|Fetching Results   |_fetch_row           |($i=0)||
-|Fetching Results   |_fetch_column        |($i=0)||
-|Fetching Results   |fetch                |($fetch=self::MYSQLI_ROW_ASSOC) *alias||
-| ----------------- | ----------------- | ----------------- | ----------------- |
 |Queries            |query                |($sql, $parameters = array(), $fetch=self::MYSQLI_ROW_ASSOC)||
 |Queries            |multi_query          |($sql, $parameters = array(), $fetch=self::MYSQLI_ROW_ASSOC)||
 |Queries            |query_single         |($sql, $parameters = array())|Error=false; Success: result string** (0 is possible)|
@@ -248,11 +263,6 @@ print_r($l);
 |Queries            |query_row            |($sql = null, $parameters = array(),$index=0)|Error=false; Success: $data[i][column_name]|
 |Queries            |query_column         |($sql = null, $parameters = array(),$index=0)|Error=false; Success: $data[i][#row]|
 |Queries            |sp                   |($sp, $parameters = array(), $fetch=self::MYSQLI_ROW_ASSOC)||
-| ----------------- | ----------------- | ----------------- | ----------------- |
-|MySQL Operations   |select               |($table, $data='*', $where = null, $operators='AND', $parameters = array())|Error=false; Success:results fetched array**|
-|MySQL Operations   |insert               |($table, $data)|Error=false; Success:True/Last ID(Auto-increment)|
-|MySQL Operations   |delete               |($table, $where = null, $operators='AND', $parameters = array())|Error=false; Success:affected rows (0 is possible)|
-|MySQL Operations   |update               |($table, $data, $where = null, $operators='AND', $parameters = array())|Error=false; Success:affected rows (0 is possible)|
 | ----------------- | ----------------- | ----------------- | ----------------- |
 |Table              |array_swish          |($array)||
 |Table              |array_tabled         |($array)||
