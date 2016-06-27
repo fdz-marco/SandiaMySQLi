@@ -27,7 +27,7 @@ $db->open("localhost","user","password","database");
 |Database           |open                 |($host, $user, $pswd, $db, $port='', $charset='utf8')|
 |Database           |close                |()|
 |Static             |callStatic           |($name,$arguments)|
-
+| --- | --- | --- |
 |Group|Function Name|Input|
 | --- | --- | --- |
 |Getters / Setters  |get_cmd_connection   |()|
