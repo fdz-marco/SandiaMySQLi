@@ -26,16 +26,16 @@ $db->open("localhost","user","password","database");
 |Group|Function Name|Input|Description|
 | --- | --- | --- | --- |
 |Database           |open                 |($host, $user, $pswd, $db, $port='', $charset='utf8')||
-|Database           |close                |```php <?php ()```||
-|Static             |__callStatic         |```php ($name,$arguments)```||
+|Database           |close                |()||
+|Static             |__callStatic         |($name,$arguments)||
 ### Getters / Setters
 |Group|Function Name|Input|Description|
 | --- | --- | --- | --- |
 |Getters / Setters  |get_cmd_connection   |()||
-|Getters / Setters  |get_last_error_id    |```php ()```||
-|Getters / Setters  |get_last_error       |```php ()```||
-|Getters / Setters  |get_last_query       |```php ()```||
-|Getters / Setters  |get_query_count      |```php ()```||
+|Getters / Setters  |get_last_error_id    |()||
+|Getters / Setters  |get_last_error       |()||
+|Getters / Setters  |get_last_query       |()||
+|Getters / Setters  |get_query_count      |()||
 |Getters / Setters  |get_time_execution   |()||
 |Getters / Setters  |get_time_connection  |()||
 |Getters / Setters  |get_time_last_query  |()||
@@ -78,7 +78,7 @@ $db->open("localhost","user","password","database");
 |Execution Operation|execute              |($sql, $parameters = array())||
 |Execution Operation|multi_execute        |($sql, $parameters = array())||
 |Execution Operation|_log                 |($transaction='')||
-### Fetching Results 
+### Fetching Results
 |Group|Function Name|Input|Description|
 | --- | --- | --- | --- |
 |Fetching Results   |_fetch               |($fetch=self::MYSQLI_ROW_ASSOC)||
