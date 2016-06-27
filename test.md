@@ -201,7 +201,7 @@ print_r($l);
 
 ## Functions Catalog
 
-|Group|Function Name|Input|Description|
+|Group|Function Name|Input|
 | --- | --- | --- | --- |
 |Database           |open                 |($host, $user, $pswd, $db, $port='', $charset='utf8')||
 |Database           |close                |()||
