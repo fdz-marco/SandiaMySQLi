@@ -26,7 +26,7 @@ $db->open("localhost","user","password","database");
 |Group|Function Name|Input|Description|
 | --- | --- | --- | --- |
 |Database           |open                 |($host, $user, $pswd, $db, $port='', $charset='utf8')||
-|Database           |close                |```php ()```||
+|Database           |close                |```php <?php ()```||
 |Static             |__callStatic         |```php ($name,$arguments)```||
 ### Getters / Setters
 |Group|Function Name|Input|Description|
