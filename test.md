@@ -23,10 +23,11 @@ $db->open("localhost","user","password","database");
 ## Functions Catalog
 
 ### Database
-- open
-- close
+|Function Name|Inputs
+|---|---|
+|open||
+|close||
 ### Static
-- callStatic
 ### Getters / Setters
 - get_cmd_connection
 - get_last_error_id
