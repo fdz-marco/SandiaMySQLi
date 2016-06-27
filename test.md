@@ -23,10 +23,10 @@ $db->open("localhost","user","password","database");
 ## Functions Catalog
 
 ### Database
-|Function Name|Inputs
-|---|---|
-|open||
-|close||
+|Fn|Function Name|Inputs
+|---|---|---|---|
+|open|($host, $user, $pswd, $db, $port='', $charset='utf8')|||
+|close||||
 ### Static
 ### Getters / Setters
 - get_cmd_connection
