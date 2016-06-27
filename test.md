@@ -156,15 +156,10 @@ The basic MySQLi operations functions allow to execute the most common operation
 
 |Function Name|Input|Description|
 | --- | --- | --- |
-|select               |($table, $data='*', $where = null, $operators='AND', $parameters = array())|Error=false; Success:results fetched array**|
-|insert               |($table, $data)|Error=false; Success:True/Last ID(Auto-increment)|
-|delete               |($table, $where = null, $operators='AND', $parameters = array())|Error=false; Success:affected rows (0 is possible)|
-|update               |($table, $data, $where = null, $operators='AND', $parameters = array())|Error=false; Success:affected rows (0 is possible)|
-
-* **insert(table, data)** - Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS.
-* **update(table, data, where = null, parameters = array())** - Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
-* **delete(table, where = null, parameters = array())** - Delete a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
-* **select(table, data='*', where = null, operators='AND', parameters=array())** - Select registers in a table. Returning: FALSE on ERROR, Results fetched array on SUCCESS.
+|insert               |($table, $data)|Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS. Error=false; Success:True/Last ID(Auto-increment)|
+|update               |($table, $data, $where = null, $operators='AND', $parameters = array())|Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS. Error=false; Success:affected rows (0 is possible)|
+|delete               |($table, $where = null, $operators='AND', $parameters = array())|Delete a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS. Error=false; Success:affected rows (0 is possible)|
+|select               |($table, $data='*', $where = null, $operators='AND', $parameters = array())|Select registers in a table. Returning: FALSE on ERROR, Results fetched array on SUCCESS. Error=false; Success:results fetched array**|
 
 ###Examples
 
