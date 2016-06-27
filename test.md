@@ -23,24 +23,24 @@ $db->open("localhost","user","password","database");
 ## Functions Catalog
 
 ### Database
--open
--close
+- open
+- close
 ### Static
--callStatic
+- callStatic
 ### Getters / Setters
--get_cmd_connection
--get_last_error_id
--get_last_error
--get_last_query
--get_query_count
--get_time_execution
--get_time_connection
--get_time_last_query
--get_affected_rows
--get_last_id
--get_log
--get_last_log
--set_log
+- get_cmd_connection
+- get_last_error_id
+- get_last_error
+- get_last_query
+- get_query_count
+- get_time_execution
+- get_time_connection
+- get_time_last_query
+- get_affected_rows
+- get_last_id
+- get_log
+- get_last_log
+- set_log
 ### Commit / Roll-back / Rewind / Free
 -transaction_begin
 -transaction_commit
