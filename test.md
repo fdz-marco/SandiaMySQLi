@@ -27,9 +27,7 @@ $db->open("localhost","user","password","database");
 |Database           |open                 |($host, $user, $pswd, $db, $port='', $charset='utf8')|
 |Database           |close                |()|
 |Static             |callStatic           |($name,$arguments)|
-| --- | --- | --- |
-|Group|Function Name|Input|
-| --- | --- | --- |
+| ****************  | ****************    | **************** |
 |Getters / Setters  |get_cmd_connection   |()|
 |Getters / Setters  |get_last_error_id    |()|
 |Getters / Setters  |get_last_error       |()|
@@ -43,17 +41,13 @@ $db->open("localhost","user","password","database");
 |Getters / Setters  |get_log              |()|
 |Getters / Setters  |get_last_log         |()|
 |Getters / Setters  |set_log              |($value = true)|
-
-|Group|Function Name|Input|
-| --- | --- | --- |
+| ****************  | ****************    | **************** |
 |Transactions       |transaction_begin    |()|
 |Transactions       |transaction_commit   |()|
 |Transactions       |transaction_rollback |()|
 |Transactions       |rewind               |()|
 |Transactions       |free                 |()|
-
-|Group|Function Name|Input|
-| --- | --- | --- |
+| ****************  | ****************    | **************** |
 |Strings Escape     |escape_string        |($string)|
 |Strings Escape     |quote_field          |($string)|
 |Strings Escape     |quote_value          |($string)|
@@ -63,9 +57,22 @@ $db->open("localhost","user","password","database");
 |Strings Escape     |quote_values         |($values)|
 |Strings Escape     |quote_escaped_fields |($string)|
 |Strings Escape     |quote_escaped_values |($values)|
-
-|Group|Function Name|Input|
-| --- | --- | --- |
+| ****************  | ****************    | **************** |
 |Query Parsing      |quote_parameters     |($data)|
 |Query Parsing      |parse_query          |($sql, $parameters)|
 |Query Parsing      |parse_where          |($data, $operators='AND')|
+| ****************  | ****************    | **************** |
+|Execution Operation|_query               |($query)|
+|Execution Operation|_multi_query         |($query)|
+|Execution Operation|execute              |($sql, $parameters = array())|
+|Execution Operation|multi_execute        |($sql, $parameters = array())|
+|Execution Operation|_log                 |($transaction='')|
+| ****************  | ****************    | **************** |
+|Fetching Results   |_fetch               |($fetch=self::MYSQLI_ROW_ASSOC)|
+|Fetching Results   |_fetch_multi         |($fetch=self::MYSQLI_ROW_ASSOC)|
+|Fetching Results   |_fetch_row           |($i=0)|
+|Fetching Results   |_fetch_column        |($i=0)|
+|Fetching Results   |fetch                |($fetch=self::MYSQLI_ROW_ASSOC) *alias|
+|Fetching Results   |fetch_multi          |($fetch=self::MYSQLI_ROW_ASSOC) *alias|
+| ****************  | ****************    | **************** |
+
