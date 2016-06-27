@@ -60,11 +60,24 @@ The *Query Parsing Functions* are used to formatting the query itself.
 
 |Function Name|Input|Description|
 | --- | --- | --- |
-|quote_parameters     |($data) Input: array('field'=>'value', 'field'=>'value')|Quote an array of \`field\` = 'value'. Value can be:: is (not) null, (>|<|!=|=) 'value'|
+|quote_parameters     |($data)|Input: array('field'=>'value', 'field'=>'value'). Quote an array of \`field\` = 'value'. Value can be:: is (not) null, (>|<|!=|=) 'value'|
 |parse_query          |($sql, $parameters)|Parsing a query quoting ? ('') or ignoring quote #|
-|parse_where          |($data, $operators='AND') Input: (array('field'=>'value'), operators)|Quote where with the passed operators (AND as default). NULL is prepared to ignore quoting, you can also ignore quoting using (&), ex: &string&.|
+|parse_where          |($data, $operators='AND')|Input: (array('field'=>'value'), operators). Quote where with the passed operators (AND as default). NULL is prepared to ignore quoting, you can also ignore quoting using (&), ex: &string&.|
 
 ### Examples
+
+#### quote_parameters()
+```php
+<?php
+$q = $db->quote_parameters(array("name"=>"Marco","lastname"=>"Fernandez","age"=>23));
+print_r($q);
+//Use the internal methods quote_fields & quote_escaped_values to create an array of quoted parameters
+//Array (
+//[0] => `name` = 'Marco'
+//[1] => `lastname` = 'Fernandez'
+//[2] => `age` = '23'
+//)
+```
 
 #### parse_query()
 ```php
@@ -94,25 +107,17 @@ print_r($q);
 //WHERE `dinasour` = 't-rex' OR `city` = NULL OR `id_vehicle` > 25
 ```
 
-#### quote_parameters()
-```php
-<?php
-$q = $db->quote_parameters(array("name"=>"Marco","lastname"=>"Fernandez","age"=>23));
-print_r($q);
-//Use the internal methods quote_fields & quote_escaped_values to create an array of quoted parameters
-//Array (
-//[0] => `name` = 'Marco'
-//[1] => `lastname` = 'Fernandez'
-//[2] => `age` = '23'
-//)
-```
-
 ## Execution Operations Functions
-
 The execution queries realize two functions: parsing and execute the query.
 
-* **execute (sql,parameters array)** - run a query in database, and parsing if a parameters array is given.
-* **multi_execute(sql, parameters array)** - run multiple queries in database, and parsing if a parameters array is given.
+|Function Name|Input|Description|
+| --- | --- | --- |
+| ----------------- | ----------------- | ----------------- | ----------------- |
+|Execution Operation|_query               |($query)|Return:: $_connection->query($query)|
+|Execution Operation|_multi_query         |($query)|Return:: $_connection->multi_query($query)|
+|Execution Operation|_log                 |($transaction='')|Add transaction to the log array.|
+|Execution Operation|execute              |($sql, $parameters = array())|Run a query in database, and parsing if a parameters array is given. **Using self::parse_query()|
+|Execution Operation|multi_execute        |($sql, $parameters = array())|Run multiple queries in database, and parsing if a parameters array is given. **Using self::parse_query()|
 
 ###Examples
 
@@ -128,17 +133,7 @@ print_r($q);
 // Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
 ````
 
-## Log and Status Functions
 
-* **get_last_error_id()** -
-* **get_last_error()** -
-* **get_last_query()** -
-* **get_query_count()** -
-* **get_execution_time()** -
-* **get_affected_rows()** -
-* **get_last_id()** -
-* **get_log()** -
-* **get_last_log()** -
 
 
 ## CRUD (MySQL Basic) Operations Functions
@@ -233,12 +228,6 @@ print_r($l);
 |Transactions       |transaction_rollback |()||
 |Transactions       |rewind               |()||
 |Transactions       |free                 |()||
-| ----------------- | ----------------- | ----------------- | ----------------- |
-|Execution Operation|_query               |($query)||
-|Execution Operation|_multi_query         |($query)||
-|Execution Operation|execute              |($sql, $parameters = array())||
-|Execution Operation|multi_execute        |($sql, $parameters = array())||
-|Execution Operation|_log                 |($transaction='')||
 | ----------------- | ----------------- | ----------------- | ----------------- |
 |Fetching Results   |_fetch               |($fetch=self::MYSQLI_ROW_ASSOC)||
 |Fetching Results   |_fetch_multi         |($fetch=self::MYSQLI_ROW_ASSOC)||
