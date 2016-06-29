@@ -259,6 +259,7 @@ print_r($l);
 
 ### Fields Constants
 |Constants Name|
+| --- |
 |cheesecake::FIELDS_ALL = 0          |
 |cheesecake::FIELDS_AUTOFILLED = 1   |
 |cheesecake::FIELDS_REQUIRED = 2     |
