@@ -1,4 +1,5 @@
-# Welcome to the Cheesecake MySQLi Database Wrapper
+# Welcome to the Cheesecake
+### (MySQLi Database Wrapper)
 
 ## What is this?
 *Cheesecake* is MySQL Databases wrapper written in PHP to make simple some of the more recurrent tasks in databases management.
@@ -150,7 +151,26 @@ print_r($q);
 |MYSQLI_COLUMN_NUM   |  $data[#column][#row]|
 | MYSQLI_COLUMN_BOTH |  $data[column_name/#column][#row/#row] ::Not optimal::|
 
-## CRUD (MySQLi Basic Operations) Operations Functions
+## Query Functions 
+The query functions execute and fetch results of the SQL queries.
+
+|Function Name|Input|Description|
+| --- | --- | --- |
+|query                |($sql, $parameters = array(), $fetch=self::MYSQLI_ROW_ASSOC)||
+|multi_query          |($sql, $parameters = array(), $fetch=self::MYSQLI_ROW_ASSOC)||
+|query_single         |($sql, $parameters = array())|Error=false; Success: result string** (0 is possible)|
+|query_all            |($sql, $parameters = array())|Error=false; Success:|
+|query_rows_assoc     |($sql, $parameters = array())|Error=false; Success: $data[#row][column_name]|
+|query_rows_num       |($sql, $parameters = array())|Error=false; Success: $data[#row][#column]|
+|query_rows_both      |($sql, $parameters = array())|Error=false; Success: $data[#row][column_name/#column]|
+|query_columns_assoc  |($sql, $parameters = array())|Error=false; Success: $data[column_name][#row]|
+|query_columns_num    |($sql, $parameters = array())|Error=false; Success: $data[#column][#row]|
+|query_columns_both   |($sql, $parameters = array())|Error=false; Success:|
+|query_row            |($sql = null, $parameters = array(),$index=0)|Error=false; Success: $data[i][column_name]|
+|query_column         |($sql = null, $parameters = array(),$index=0)|Error=false; Success: $data[i][#row]|
+|sp                   |($sp, $parameters = array(), $fetch=self::MYSQLI_ROW_ASSOC)||
+
+## CRUD (MySQLi Basic Operations) Functions
 The basic MySQLi operations functions allow to execute the most common operations in databases.
 (Create [Insert], Read [Select], Update, Delete)
 
@@ -173,7 +193,7 @@ print_r($q);
 $l = $db->get_last_query();
 print_r($l);
 //INSERT INTO `test` (`field`,`value`,`status`) VALUES ('field 001','value 001','1')
-````
+```
 
 ####update()
 ```php
@@ -185,7 +205,7 @@ print_r($q);
 $l = $db->get_last_query();
 print_r($l);
 //UPDATE `test` SET `field` = 'field 002' WHERE `field` = 'field 001'
-````
+```
 
 ####delete()
 ```php
@@ -197,7 +217,7 @@ print_r($q);
 $l = $db->get_last_query();
 print_r($l);
 //DELETE FROM `test` WHERE `field` = 'field 002'
-````
+```
 
 ####select()
 ```php
@@ -228,11 +248,31 @@ print_r($q);
 $l = $db->get_last_query();
 print_r($l);
 //SELECT * FROM `test` WHERE `status` > 0
-````
+```
 
+## Queries Functions
+|Function Name|Input|Description|
+| --- | --- | --- |
+|is_table             |($table)||
+|is_field             |($table,$field)||
+|get_tables           |()||
+|get_fields           |($table, $get = self::FIELDS_ALL)||
+|get_next_autoincrement|($table)||
 
-## Functions Catalog
+## Queries Functions
+|Function Name|Input|Description|
+| --- | --- | --- |
+|get_properties       |($table, $get = self::FIELDS_AL)||
+|get_keys             |($table, $get = self::FIELDS_ALL, $constraints = false)||
 
+## Special Functions
+|Function Name|Input|Description|
+| --- | --- | --- |
+|table_backup         |($table,$backup='')||
+|table_drop           |($table)||
+|table_create         |($table_name, $field)||
+
+## Other Functions Catalog
 |Group|Function Name|Input|Description|
 | --- | --- | --- | --- |
 |Database           |open                 |($host, $user, $pswd, $db, $port='', $charset='utf8')||
@@ -245,32 +285,5 @@ print_r($l);
 |Transactions       |rewind               |()||
 |Transactions       |free                 |()||
 | ----------------- | ----------------- | ----------------- | ----------------- |
-|Queries            |query                |($sql, $parameters = array(), $fetch=self::MYSQLI_ROW_ASSOC)||
-|Queries            |multi_query          |($sql, $parameters = array(), $fetch=self::MYSQLI_ROW_ASSOC)||
-|Queries            |query_single         |($sql, $parameters = array())|Error=false; Success: result string** (0 is possible)|
-|Queries            |query_all            |($sql, $parameters = array())| Error=false; Success:|
-|Queries            |query_rows_assoc     |($sql, $parameters = array())|Error=false; Success: $data[#row][column_name]|
-|Queries            |query_rows_num       |($sql, $parameters = array())|Error=false; Success: $data[#row][#column]|
-|Queries            |query_rows_both      |($sql, $parameters = array())|Error=false; Success: $data[#row][column_name/#column]|
-|Queries            |query_columns_assoc  |($sql, $parameters = array())|Error=false; Success: $data[column_name][#row]|
-|Queries            |query_columns_num    |($sql, $parameters = array())|Error=false; Success: $data[#column][#row]|
-|Queries            |query_columns_both   |($sql, $parameters = array())|Error=false; Success:|
-|Queries            |query_row            |($sql = null, $parameters = array(),$index=0)|Error=false; Success: $data[i][column_name]|
-|Queries            |query_column         |($sql = null, $parameters = array(),$index=0)|Error=false; Success: $data[i][#row]|
-|Queries            |sp                   |($sp, $parameters = array(), $fetch=self::MYSQLI_ROW_ASSOC)||
-| ----------------- | ----------------- | ----------------- | ----------------- |
 |Table              |array_swish          |($array)||
 |Table              |array_tabled         |($array)||
-| ----------------- | ----------------- | ----------------- | ----------------- |
-|Queries Functions  |is_table             |($table)||
-|Queries Functions  |is_field             |($table,$field)||
-|Queries Functions  |get_tables           |()||
-|Queries Functions  |get_fields           |($table, $get = self::FIELDS_ALL)||
-|Queries Functions  |get_next_autoincrement|($table)||
-| ----------------- | ----------------- | ----------------- | ----------------- |
-|Table Queries      |get_properties       |($table, $get = self::FIELDS_AL)||
-|Table Queries      |get_keys             |($table, $get = self::FIELDS_ALL, $constraints = false)||
-| ----------------- | ----------------- | ----------------- | ----------------- |
-|Special Queries    |table_backup         |($table,$backup='')||
-|Special Queries    |table_drop           |($table)||
-|Special Queries    |table_create         |($table_name, $field)||
