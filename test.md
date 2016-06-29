@@ -151,7 +151,7 @@ print_r($q);
 |MYSQLI_COLUMN_NUM   |  $data[#column][#row]|
 | MYSQLI_COLUMN_BOTH |  $data[column_name/#column][#row/#row] ::Not optimal::|
 
-## Query Functions 
+## Query Functions
 The query functions execute and fetch results of the SQL queries.
 
 |Function Name|Input|Description|
@@ -194,7 +194,6 @@ $l = $db->get_last_query();
 print_r($l);
 //INSERT INTO `test` (`field`,`value`,`status`) VALUES ('field 001','value 001','1')
 ```
-
 ####update()
 ```php
 <?php
@@ -206,7 +205,6 @@ $l = $db->get_last_query();
 print_r($l);
 //UPDATE `test` SET `field` = 'field 002' WHERE `field` = 'field 001'
 ```
-
 ####delete()
 ```php
 <?php
@@ -218,7 +216,6 @@ $l = $db->get_last_query();
 print_r($l);
 //DELETE FROM `test` WHERE `field` = 'field 002'
 ```
-
 ####select()
 ```php
 <?php
@@ -249,21 +246,25 @@ $l = $db->get_last_query();
 print_r($l);
 //SELECT * FROM `test` WHERE `status` > 0
 ```
-
-## Queries Functions
+## Queries/Tables Functions
 |Function Name|Input|Description|
 | --- | --- | --- |
-|is_table             |($table)||
-|is_field             |($table,$field)||
-|get_tables           |()||
+|is_table             |($table)|Result:: True/False|
+|is_field             |($table,$field)|Result:: True/False|
+|get_tables           |()|SQL:: SHOW TABLES|
 |get_fields           |($table, $get = self::FIELDS_ALL)||
-|get_next_autoincrement|($table)||
-
-## Queries Functions
-|Function Name|Input|Description|
-| --- | --- | --- |
+|get_next_autoincrement|($table)|Result:: ID/False|
 |get_properties       |($table, $get = self::FIELDS_AL)||
 |get_keys             |($table, $get = self::FIELDS_ALL, $constraints = false)||
+
+### Fields Constants
+|Constants Name|
+|cheesecake::FIELDS_ALL = 0          |
+|cheesecake::FIELDS_AUTOFILLED = 1   |
+|cheesecake::FIELDS_REQUIRED = 2     |
+|cheesecake::FIELDS_PRIMARY = 3      |
+|cheesecake::FIELDS_UNIQUE = 4       |
+|cheesecake::FIELDS_FOREIGN = 5      |
 
 ## Special Functions
 |Function Name|Input|Description|
@@ -275,15 +276,13 @@ print_r($l);
 ## Other Functions Catalog
 |Group|Function Name|Input|Description|
 | --- | --- | --- | --- |
-|Database           |open                 |($host, $user, $pswd, $db, $port='', $charset='utf8')||
-|Database           |close                |()||
-|Static             |__callStatic         |($name,$arguments)||
-| ----------------- | ----------------- | ----------------- | ----------------- |
-|Transactions       |transaction_begin    |()||
-|Transactions       |transaction_commit   |()||
-|Transactions       |transaction_rollback |()||
-|Transactions       |rewind               |()||
-|Transactions       |free                 |()||
-| ----------------- | ----------------- | ----------------- | ----------------- |
-|Table              |array_swish          |($array)||
-|Table              |array_tabled         |($array)||
+|Database       |open                 |($host, $user, $pswd, $db, $port='', $charset='utf8')||
+|Database       |close                |()||
+|Static         |__callStatic         |($name,$arguments)||
+|Transactions   |transaction_begin    |()||
+|Transactions   |transaction_commit   |()||
+|Transactions   |transaction_rollback |()||
+|Transactions   |rewind               |()||
+|Transactions   |free                 |()||
+|Table          |array_swish          |($array)||
+|Table          |array_tabled         |($array)||
