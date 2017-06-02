@@ -23,27 +23,27 @@ $db->open("localhost","user","password","database");
 
 # Documentation
 
-## Strings escape Functions / \`Fields\` and 'Values' formatting Functions
+## Quoting Functions :: \`Fields\` and 'Values'
 
-Sandia MySQL have some public methods to formatting queries. These ones are used inside the class but also can be used to formatting a query outside.
+*Cake* have some _public static_ methods to formatting queries. These ones are used inside the class but also can be used to formatting a query as static functions outside.
 
-* **escape_string(string)** - alias from MYSQLI::real_escape_string
-* **quote_field(string)** - quote a string with backquote, ex: \`string\`
-* **quote_value(string)** - quote a string with single quote, ex: 'string'
-* **quote_escaped_field(string)** - quote a string with backquote before escaped it
-* **quote_escaped_value(string)** - quote a string before escaped it
-* **quote_fields(string)** - quote an array of strings with backquote, ex: \`string\`,\`string\`,\`string\`
-* **quote_values(string)** - quote an array of strings with single quote, ex: 'string','string','string'
-* **quote_escaped_fields(string)** - quote an array of strings with backquote before escaped it
-* **quote_escaped_values(string)** - quote an array of strings with single quote before escaped it
- 
-## Query Parsing Functions
+* **->escape_string(string)** - replace special characters, alias from MYSQLI::real_escape_string. 
+* **->quote_field(string)** - quote a string with backquote, ex: \`string\`
+* **->quote_value(string)** - quote a string with single quote, ex: 'string'
+* **->quote_escaped_field(string)** - quote a string with backquote before escaped it.
+* **->quote_escaped_value(string)** - quote a string before escaped it.
+* **->quote_fields(string)** - quote an **_array_** of strings with backquote, ex: \`string\`,\`string\`,\`string\`
+* **->quote_values(string)** - quote an **_array_** of strings with single quote, ex: 'string','string','string'
+* **->quote_escaped_fields(string)** - quote an **_array_** of strings with backquote before escaped it
+* **->quote_escaped_values(string)** - quote an **_array_** of strings with single quote before escaped it
 
-The Sandia MySQL *String ecape and String formatting functions* are used to give format to fields and values previous its use in a query. The *Query Parsing Functions* are used to formatting the query itself.
+## Query Formatting Functions
 
-* **quote_parameters(array('field'=>'value', 'field'=>'value')** - quote an array of \`field\` = 'value'
-* **parse_query(string)** - parsing a query quoting ? ('') or ignoring quote #
-* **parse_where(array('field'=>'value'), operators)** - quote where with the passed operators (AND as default). NULL is prepared to ignore quoting, you can also ignore quoting usin (&), ex: &string&.
+*Cake* **Quoting Functions** are used to give format to fields and values previous its use in a query. The *Query Formatting Functions* are used to formatting the query itself.
+
+* **->format_parameters(array('field'=>'value', 'field'=>'value')** - format a quote an return and array of type: _\`field\` = 'value'_. The **Value** field could be use also =,!=,>,<,>=,<=,is like,is not like.
+* **->format_query(string)** - parsing a query quoting ? ('') or ignoring quote #
+* **->format_where(array('field'=>'value'), operators)** - quote where with the passed operators (AND as default). NULL is prepared to ignore quoting, you can also ignore quoting usin (&), ex: &string&.
 
 ### Examples
 
