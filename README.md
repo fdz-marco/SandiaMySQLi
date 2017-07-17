@@ -1,7 +1,7 @@
 ### Welcome to the Turbine MySQLi DB Wrapper 
 
 # What is this?
-![Turbine MySQLi](https://raw.github.com/inventtoo/SandiaMySQLi/master/design/SandiaMySQLi_mini.png "Logo Sandia MySQLi") 
+![Turbine MySQLi] (https://raw.github.com/inventtoo/SandiaMySQLi/master/design/SandiaMySQLi_mini.png "Logo Sandia MySQLi") 
 
 *Turbine MySQLi DB Wrapper* is a wrapper for MySQL Databases written in PHP to make simple some of the more recurrent tasks in databases management.
 
@@ -166,13 +166,44 @@ The **_Auto-Fetching Queries Functions_** realize three functions: query format,
 
 The basic mysql operations functions allow to execute the most common operations in databases. The common operations normally are called as: **(C)** reate, **(R)** ead, **(U)** pdate, **(D)** elete; or **(B)** rowse, **(R)** ead, **(E)** dit, **(A)** dd, **(D)** elete.
 
-
+* **select(table, data='*', where = null, operators='AND', parameters=array())** - Select registers in a table. Returning: FALSE on ERROR, or results fetched array on SUCCESS.
 * **insert(table, data)** - Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS.
-* **update(table, data, where = null, parameters = array())** - Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
+* **update(table, data,where = null, parameters = array())** - Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
 * **delete(table, where = null, parameters = array())** - Delete a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
-* **select(table, data='*', where = null, operators='AND', parameters=array())** - Select registers in a table. Returning: FALSE on ERROR, Results fetched array on SUCCESS.
+
 
 ### Examples
+
+#### select()
+```php
+<?php
+//---------------- Method 1
+$q = $db->select("test",array('field','value'));
+print_r($q);
+//Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 ) )
+
+$l = $db->get_last_query();
+print_r($l);
+//SELECT `field`,`value` FROM `test`
+
+//---------------- Method 2
+$q = $db->select("test",'*',array('field'=>'like %f%','value'=>'is not null','status'=>'&1&'));
+print_r($q);
+//Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
+
+$l = $db->get_last_query();
+print_r($l);
+//SELECT * FROM `test` WHERE `field` like '%f%' AND `value` is not NULL AND `status` = 1
+
+//---------------- Method 3
+$q = $db->select("test",'*',array('status'=>'> &0&'));
+print_r($q);
+//Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
+
+$l = $db->get_last_query();
+print_r($l);
+//SELECT * FROM `test` WHERE `status` > 0
+```
 
 #### insert()
 ```php
@@ -210,33 +241,3 @@ print_r($l);
 //DELETE FROM `test` WHERE `field` = 'field 002'
 ```
 
-#### select()
-```php
-<?php
-//---------------- Method 1
-$q = $db->select("test",array('field','value'));
-print_r($q);
-//Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 ) )
-
-$l = $db->get_last_query();
-print_r($l);
-//SELECT `field`,`value` FROM `test`
-
-//---------------- Method 2
-$q = $db->select("test",'*',array('field'=>'like %f%','value'=>'is not null','status'=>'&1&'));
-print_r($q);
-//Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
-
-$l = $db->get_last_query();
-print_r($l);
-//SELECT * FROM `test` WHERE `field` like '%f%' AND `value` is not NULL AND `status` = 1
-
-//---------------- Method 3
-$q = $db->select("test",'*',array('status'=>'> &0&'));
-print_r($q);
-//Output: Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
-
-$l = $db->get_last_query();
-print_r($l);
-//SELECT * FROM `test` WHERE `status` > 0
-```
