@@ -40,27 +40,27 @@ turbine::close();
 
 ## Getters / Setters
 
-| Function | Description
+| Function Name | Description |
 | --- | --- |
-| **->get_cmd_connection()** | return the connection in cmd format: _user@host:port>database_.
-|  **->get_last_error_id()** | return the last error id.
-|  **->get_last_error()** | return the last error message.
-|  **->get_last_query()** | return the last query in sql.
-|  **->get_query_count()** |return the number of queries executed in the connection.
-|  **->get_time_execution()** | return the execution time.
-|  **->get_time_connection()** | return the connection time.
-|  **->get_time_last_query()** | return the execution time of the last query.
-|  **->get_affected_rows()** | return the number of affected rows in the last query.
-|  **->get_last_id()** | return the last id affected in the last query.
-|  **->get_log()** | return the log history.
-|  **->get_last_log()** | return the last log entry.
-|  **->set_log(boolean)** | enable/disable the logging.
+| **->get_cmd_connection()** | return the connection in cmd format: _user@host:port>database_. |
+| **->get_last_error_id()** | return the last error id. |
+| **->get_last_error()** | return the last error message. |
+| **->get_last_query()** | return the last query in sql. |
+| **->get_query_count()** |return the number of queries executed in the connection. |
+| **->get_time_execution()** | return the execution time. |
+| **->get_time_connection()** | return the connection time. |
+| **->get_time_last_query()** | return the execution time of the last query. |
+| **->get_affected_rows()** | return the number of affected rows in the last query. |
+| **->get_last_id()** | return the last id affected in the last query. |
+| **->get_log()** | return the log history. |
+| **->get_last_log()** | return the last log entry. |
+| **->set_log(boolean)** | enable/disable the logging. |
 
 ## Formatting Functions :: \`Fields\` and 'Values'
 
 **Turbine** have some **_public static_** methods to formatting queries. These ones are used inside the class but also can be used to formatting a query as static functions outside.
 
-| Function | Description
+| Function Name | Description |
 | --- | --- |
 | **->escape_string(string)** | replace special characters, alias from **_MYSQLI::real_escape_string_** if connection exists. |
 | **->quote_field(string)** | quote a string with backquote. Example: **\`string\`** |
@@ -76,7 +76,7 @@ turbine::close();
 
 **Turbine** **_Formatting Functions :: Query_** are used to give format to fields and values previous of its use in a query. These functions are used to formatting the query itself.
 
-| Function | Description
+| Function | Description |
 | --- | --- |
 | **->format_parameters(array('field'=>'value', 'field'=>'value')** | format a quote an return and array of type: **_\`field\` = 'value'_**. The **value** field could be use also the next operators: =,!=,>,<,>=,<=,is like,is not like. |
 | **->format_simple_query(string)** | parsing a query quoting the values: **?** for single quote ('') or **#** to ignoring quote. |
@@ -126,7 +126,7 @@ print_r($q);
 
 The **_Execution Functions_** realize two functions: query format and query execution. 
 
-| Function | Description
+| Function | Description |
 | --- | --- |
 | **->execute (sql, parameters array)** | run a query in database, and parsing if a parameters array is given. |
 | **->multi_execute(sql, parameters array)** | run multiple queries in database, and parsing if a parameters array is given. |
@@ -137,7 +137,7 @@ These block of functions has also some private functions to internal use: **\_qu
 The **_Fetch Functions_** help to transfer the results of the executed query to an array.
 
 #### Fetchs types
-| Name                | Data                                                   |
+| Fectch Type Name    | Returned Data                                          |
 | ------------------- |------------------------------------------------------- |
 | MYSQLI_ALL          | `$data[#row][#column/column_name]`                     |
 | MYSQLI_ROW_ASSOC    | `$data[#row][column_name]` ::Usually used::            |
@@ -147,10 +147,10 @@ The **_Fetch Functions_** help to transfer the results of the executed query to 
 | MYSQLI_COLUMN_NUM   | `$data[#column][#row]`                                 |
 | MYSQLI_COLUMN_BOTH  | `$data[column_name/#column][#row/#row]` ::Not optimal::|
 
-| Function | Description
+| Function Name | Description
 | --- | --- |
-| **fetch(fetch_type)** | | 
-| **fetch_multi(fetch_type)** |  |
+| **->fetch(fetch_type)** | | 
+| **->fetch_multi(fetch_type)** |  |
 
 These block of functions has also some private functions to internal use: **\_fetch(fetch_type)**, **\_fetch_multi(fetch_type)**, **\_fetch_row(int)**,  **\_fetch_column(int)**.
 
@@ -172,7 +172,7 @@ print_r($q);
 
 The **_Auto-Fetching Queries Functions_** realize three functions: query format, query execution and query fetching. Therefore, they deliver directly and array with the results of the query.
 
-| Function name                             | On Error   | On Success                          |
+| Function Name                             | On Error   | On Success                          |
 | ----------------------------------------- | ---------- | ----------------------------------- |
 | **->query(sql,params,fetch_type)**        |            |                                     |
 | **->multi_query(sql,params,fetch_type)**  |            |                                     |
@@ -192,12 +192,12 @@ The **_Auto-Fetching Queries Functions_** realize three functions: query format,
 
 The basic mysql operations functions allow to execute the most common operations in databases. The common operations normally are called as: **(C)** reate, **(R)** ead, **(U)** pdate, **(D)** elete; or **(B)** rowse, **(R)** ead, **(E)** dit, **(A)** dd, **(D)** elete.
 
-| Function | Description |
+| Function Name | Description |
 | --- | --- |
-| **select(table, data='*', where = null, operators='AND', parameters=array())** | Select registers in a table. Returning: FALSE on ERROR, or results fetched array on SUCCESS. |
-| **insert(table, data)** - Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS. |
-| **update(table, data,where = null, parameters = array())** | Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS. |
-| **delete(table, where = null, parameters = array())** | Delete a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS. |
+| **->select(table, data='*', where = null, operators='AND', parameters=array())** | Select registers in a table. Returning: FALSE on ERROR, or results fetched array on SUCCESS. |
+| **->insert(table, data)** - Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS. |
+| **->update(table, data,where = null, parameters = array())** | Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS. |
+| **->delete(table, where = null, parameters = array())** | Delete a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS. |
 
 ### Examples
 
@@ -267,14 +267,19 @@ print_r($l);
 
 ##  Commit / Roll-back / Rewind / Free
 
-* **->transaction_begin()**
-* **->transaction_commit()**
-* **->transaction_rollback()**
-* **->rewind()**
-* **->free()**
+| Function Name | Description |
+| --- | --- |
+| **->transaction_begin()** | |
+| **->transaction_commit()** | |
+| **->transaction_rollback()** | |
+| **->rewind()** | |
+| **->free()** | |
 
 ##  Array Operations 
-* **->array_swish(array)** -
-* **->array_tabled(array)** -
+
+| Function Name | Description |
+| --- | --- |
+| **->array_swish(array)** | |
+| **->array_tabled(array)** | |
 
 
