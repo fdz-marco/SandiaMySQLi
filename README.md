@@ -76,9 +76,11 @@ turbine::close();
 
 **Turbine** **_Formatting Functions :: Query_** are used to give format to fields and values previous of its use in a query. These functions are used to formatting the query itself.
 
-* **->format_parameters(array('field'=>'value', 'field'=>'value')** - format a quote an return and array of type: **_\`field\` = 'value'_**. The **value** field could be use also the next operators: =,!=,>,<,>=,<=,is like,is not like.
-* **->format_simple_query(string)** - parsing a query quoting the values: **?** for single quote ('') or **#** to ignoring quote.
-* **->format_where_query(array('field'=>'value'), operators)** - quote where with the passed operators (AND as default). **NULL** is prepared to ignore quoting. You can also ignore quoting using (&). Example: &string&.
+| Function | Description
+| --- | --- |
+| **->format_parameters(array('field'=>'value', 'field'=>'value')** | format a quote an return and array of type: **_\`field\` = 'value'_**. The **value** field could be use also the next operators: =,!=,>,<,>=,<=,is like,is not like. |
+| **->format_simple_query(string)** | parsing a query quoting the values: **?** for single quote ('') or **#** to ignoring quote. |
+| **->format_where_query(array('field'=>'value'), operators)** | quote where with the passed operators (AND as default). **NULL** is prepared to ignore quoting. You can also ignore quoting using (&). Example: &string&. |
 
 ### Examples
 
@@ -124,8 +126,10 @@ print_r($q);
 
 The **_Execution Functions_** realize two functions: query format and query execution. 
 
-* **->execute (sql, parameters array)** - run a query in database, and parsing if a parameters array is given.
-* **->multi_execute(sql, parameters array)** - run multiple queries in database, and parsing if a parameters array is given.
+| Function | Description
+| --- | --- |
+| **->execute (sql, parameters array)** | run a query in database, and parsing if a parameters array is given. |
+| **->multi_execute(sql, parameters array)** | run multiple queries in database, and parsing if a parameters array is given. |
 
 These block of functions has also some private functions to internal use: **\_query(sql)**, **\_multi_query(sql)**, **\_log(string)**
 
@@ -143,8 +147,10 @@ The **_Fetch Functions_** help to transfer the results of the executed query to 
 | MYSQLI_COLUMN_NUM   | `$data[#column][#row]`                                 |
 | MYSQLI_COLUMN_BOTH  | `$data[column_name/#column][#row/#row]` ::Not optimal::|
 
-* **fetch(fetch_type)** - 
-* **fetch_multi(fetch_type)** - 
+| Function | Description
+| --- | --- |
+| **fetch(fetch_type)** | | 
+| **fetch_multi(fetch_type)** |  |
 
 These block of functions has also some private functions to internal use: **\_fetch(fetch_type)**, **\_fetch_multi(fetch_type)**, **\_fetch_row(int)**,  **\_fetch_column(int)**.
 
@@ -186,10 +192,12 @@ The **_Auto-Fetching Queries Functions_** realize three functions: query format,
 
 The basic mysql operations functions allow to execute the most common operations in databases. The common operations normally are called as: **(C)** reate, **(R)** ead, **(U)** pdate, **(D)** elete; or **(B)** rowse, **(R)** ead, **(E)** dit, **(A)** dd, **(D)** elete.
 
-* **select(table, data='*', where = null, operators='AND', parameters=array())** - Select registers in a table. Returning: FALSE on ERROR, or results fetched array on SUCCESS.
-* **insert(table, data)** - Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS.
-* **update(table, data,where = null, parameters = array())** - Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
-* **delete(table, where = null, parameters = array())** - Delete a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
+| Function | Description |
+| --- | --- |
+| **select(table, data='*', where = null, operators='AND', parameters=array())** | Select registers in a table. Returning: FALSE on ERROR, or results fetched array on SUCCESS. |
+| **insert(table, data)** - Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS. |
+| **update(table, data,where = null, parameters = array())** | Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS. |
+| **delete(table, where = null, parameters = array())** | Delete a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS. |
 
 ### Examples
 
