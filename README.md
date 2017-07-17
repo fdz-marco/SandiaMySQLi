@@ -148,6 +148,7 @@ print_r($q);
 The **_Auto-Fetching Queries Functions_** realize three functions: query format, query execution and query fetching. Therefore, they deliver directly and array with the results of the query.
 
 | Function name                             | On Error   | On Success                          |
+| ----------------------------------------- | ---------- | ----------------------------------- |
 | **->query(sql,params,fetch_type)**        |            |                                     |
 | **->multi_query(sql,params,fetch_type)**  |            |                                     |
 | **->query_single(sql,params)**            | bool:false | `$data[0][0]` (0 is possible)       |
