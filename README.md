@@ -118,16 +118,16 @@ Markdown | Less | Pretty
 *Still* | `renders` | **nicely**
 1 | 2 | 3
 
-####Fetchs types
-| Name               | Data                                                   |
-| ------------------ |------------------------------------------------------- |
-|MYSQLI_ALL          | `$data[#row][#column/column_name]`                     |
-|MYSQLI_ROW_ASSOC    | `$data[#row][column_name]` ::Usually used::            |
-|MYSQLI_ROW_NUM      | `$data[#row][#column]`                                 |
-|MYSQLI_ROW_BOTH     | This is the equivalence of MYSQLI_ALL                  |
-|MYSQLI_COLUMN_ASSOC | `$data[column_name][#row]` ::Field used::              |
-|MYSQLI_COLUMN_NUM   | `$data[#column][#row]`                                 |
-|MYSQLI_COLUMN_BOTH  | `$data[column_name/#column][#row/#row]` ::Not optimal::|
+#### Fetchs types
+| Name                | Data                                                   |
+| ------------------- |------------------------------------------------------- |
+| MYSQLI_ALL          | `$data[#row][#column/column_name]`                     |
+| MYSQLI_ROW_ASSOC    | `$data[#row][column_name]` ::Usually used::            |
+| MYSQLI_ROW_NUM      | `$data[#row][#column]`                                 |
+| MYSQLI_ROW_BOTH     | This is the equivalence of MYSQLI_ALL                  |
+| MYSQLI_COLUMN_ASSOC | `$data[column_name][#row]` ::Field used::              |
+| MYSQLI_COLUMN_NUM   | `$data[#column][#row]`                                 |
+| MYSQLI_COLUMN_BOTH  | `$data[column_name/#column][#row/#row]` ::Not optimal::|
 
 * **fetch(fetch_type)** - 
 * **fetch_multi(fetch_type)** - 
