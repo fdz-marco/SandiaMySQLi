@@ -39,7 +39,8 @@ turbine::close();
 # Documentation
 
 ## Getters / Setters
-| Function | Descrption
+
+| Function | Description
 | --- | --- |
 | **->get_cmd_connection()** | return the connection in cmd format: _user@host:port>database_.
 |  **->get_last_error_id()** | return the last error id.
@@ -59,15 +60,17 @@ turbine::close();
 
 **Turbine** have some **_public static_** methods to formatting queries. These ones are used inside the class but also can be used to formatting a query as static functions outside.
 
-* **->escape_string(string)** - replace special characters, alias from **_MYSQLI::real_escape_string_** if connection exists. 
-* **->quote_field(string)** - quote a string with backquote. Example: **\`string\`**
-* **->quote_value(string)** - quote a string with single quote. Example: **'string'**
-* **->quote_field_escaped(string)** - quote a escaped string with backquote. Example: **\`escaped_string\`**
-* **->quote_value_escaped(string)** - quote a escaped string with single quote. The **NULL** and text inside **&string&** will be excluded. Example: escaped_string => **'escaped_string'** or NULL=>**NULL** or  &random text&=>**random text** 
-* **->quote_fields(string)** - quote an **_array_** of strings with backquote. Example: **\`string\`,\`string\`,\`string\`**
-* **->quote_values(string)** - quote an **_array_** of strings with single quote. Example: **'string','string','string'**
-* **->quote_fields_escaped(string)** - quote an **_array_** of strings with backquote after escaped it.
-* **->quote_values_escaped(string)** - quote an **_array_** of strings with single quote after escaped it.
+| Function | Description
+| --- | --- |
+| **->escape_string(string)** | replace special characters, alias from **_MYSQLI::real_escape_string_** if connection exists. |
+| **->quote_field(string)** | quote a string with backquote. Example: **\`string\`** |
+| **->quote_value(string)** | quote a string with single quote. Example: **'string'** |
+| **->quote_field_escaped(string)** | quote a escaped string with backquote. Example: **\`escaped_string\`** |
+| **->quote_value_escaped(string)** | quote a escaped string with single quote. The **NULL** and text inside **&string&** will be excluded. Example: escaped_string => **'escaped_string'** or NULL=>**NULL** or  &random text&=>**random text** |
+| **->quote_fields(string)** | quote an **_array_** of strings with backquote. Example: **\`string\`,\`string\`,\`string\`** |
+| **->quote_values(string)** | quote an **_array_** of strings with single quote. Example: **'string','string','string'** |
+| **->quote_fields_escaped(string)** | quote an **_array_** of strings with backquote after escaped it. |
+| **->quote_values_escaped(string)** | quote an **_array_** of strings with single quote after escaped it. |
 
 ## Formatting Functions :: Query
 
