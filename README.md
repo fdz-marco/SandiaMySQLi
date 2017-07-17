@@ -23,6 +23,24 @@ $db->open("localhost","user","password","database");
 
 # Documentation
 
+## Getters / Setters
+
+* **get_cmd_connection()** - return the *connection in cmd format: user@host:port>database*.
+* **get_last_error_id()** - return the last error id.
+* **get_last_error()** - return the last error message.
+* **get_last_query()** - return the last query in sql.
+* **get_query_count()** - return the number of queries executed in the connection.
+* **get_time_execution()** - return the execution time.
+* **get_time_connection()** - return the connection time.
+* **get_time_last_query()** - return the execution time of the last query.
+* **get_affected_rows()** - return the number of affected rows in the last query.
+* **get_last_id()** - return the last id affected in the last query.
+* **get_log()** - return the log history.
+* **get_last_log()** - return the last log entry.
+* **set_log(boolean)** - enable/disable the logging.
+
+
+
 ## Quoting Functions :: \`Fields\` and 'Values'
 
 *Cake* have some _public static_ methods to formatting queries. These ones are used inside the class but also can be used to formatting a query as static functions outside.
@@ -109,17 +127,6 @@ print_r($q);
 // Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
 ````
 
-## Log and Status Functions
-
-* **get_last_error_id()** - 
-* **get_last_error()** - 
-* **get_last_query()** - 
-* **get_query_count()** - 
-* **get_execution_time()** - 
-* **get_affected_rows()** - 
-* **get_last_id()** - 
-* **get_log()** - 
-* **get_last_log()** - 
 
 
 ## CRUD (MySQL Basic) Operations Functions
