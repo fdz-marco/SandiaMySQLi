@@ -108,9 +108,9 @@ The **_Execution Functions_** realize two functions: parsing and execute the que
 * **->execute (sql, parameters array)** - run a query in database, and parsing if a parameters array is given.
 * **->multi_execute(sql, parameters array)** - run multiple queries in database, and parsing if a parameters array is given.
 
-These block of functions has also some private functions to internal use: **_query(sql)**, **_multi_query(sql)**, **_log(string)**.
+These block of functions has also some private functions to internal use: **\_query(sql)**, **\_multi_query(sql)**, **\_log(string)**
 
-###Examples
+### Examples
 
 #### execute()
 ```php
@@ -122,9 +122,14 @@ print_r($q);
 $q = $db->fetch();
 print_r($q);
 // Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
-````
+```
+## Fetch Functions
+The **_Fetch Functions_** help to transfer the results of the executed query to an array.
 
+* **fetch(fetch_type)** - 
+* **fetch_multi(fetch_type)** - 
 
+These block of functions has also some private functions to internal use: **\_fetch(fetch_type)**, **\_fetch_multi(fetch_type)**, **\_fetch_row(int)**,  **\_fetch_column(int)**.
 
 ## CRUD (MySQL Basic) Operations Functions
 
