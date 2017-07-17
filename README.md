@@ -110,9 +110,31 @@ The **_Execution Functions_** realize two functions: parsing and execute the que
 
 These block of functions has also some private functions to internal use: **\_query(sql)**, **\_multi_query(sql)**, **\_log(string)**
 
+## Fetch Functions
+The **_Fetch Functions_** help to transfer the results of the executed query to an array.
+
+####Fetchs types
+|Name|Data|
+|MYSQLI_ALL|$data[#row][#column/column_name]|
+|MYSQLI_ROW_ASSOC|$data[#row][column_name] ::Usually used::|
+|MYSQLI_ROW_NUM|$data[#row][#column]|
+|MYSQLI_ROW_BOTH|This is the equivalence of MYSQLI_ALL|
+|MYSQLI_COLUMN_ASSOC|$data[column_name][#row] ::Field used::|
+|MYSQLI_COLUMN_NUM|$data[#column][#row]|
+|MYSQLI_COLUMN_BOTH|$data[column_name/#column][#row/#row] ::Not optimal::|
+
+
+
+
+
+* **fetch(fetch_type)** - 
+* **fetch_multi(fetch_type)** - 
+
+These block of functions has also some private functions to internal use: **\_fetch(fetch_type)**, **\_fetch_multi(fetch_type)**, **\_fetch_row(int)**,  **\_fetch_column(int)**.
+
 ### Examples
 
-#### execute()
+#### execute() / fetch()
 ```php
 <?php
 $q = $db->execute('SELECT * FROM test');
@@ -123,13 +145,6 @@ $q = $db->fetch();
 print_r($q);
 // Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
 ```
-## Fetch Functions
-The **_Fetch Functions_** help to transfer the results of the executed query to an array.
-
-* **fetch(fetch_type)** - 
-* **fetch_multi(fetch_type)** - 
-
-These block of functions has also some private functions to internal use: **\_fetch(fetch_type)**, **\_fetch_multi(fetch_type)**, **\_fetch_row(int)**,  **\_fetch_column(int)**.
 
 ## CRUD (MySQL Basic) Operations Functions
 
