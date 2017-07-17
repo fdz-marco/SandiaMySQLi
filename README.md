@@ -20,7 +20,7 @@ require_once 'Turbine_MySQLi_Wrapper.php';
 
 $db = new TurbineMySQL();
 $db->open("localhost","user","password","database");
-$q = $db->query("SELECT * FROM `log_curl`");
+$q = $db->query("SELECT * FROM `table`");
 echo $db->array_tabled($q);
 $db->close();
 ```
@@ -31,7 +31,7 @@ Or directly calling the static functions of the class:
 require_once 'Turbine_MySQLi_Wrapper.php';
 
 turbine::open("localhost","user","password","database");	
-$q = turbine::query("SELECT * FROM `log_curl`");
+$q = turbine::query("SELECT * FROM `table`");
 echo turbine::array_tabled($q);
 turbine::close();
 ```
