@@ -25,86 +25,84 @@ $db->open("localhost","user","password","database");
 
 ## Getters / Setters
 
-* **get_cmd_connection()** - return the *connection in cmd format: user@host:port>database*.
-* **get_last_error_id()** - return the last error id.
-* **get_last_error()** - return the last error message.
-* **get_last_query()** - return the last query in sql.
-* **get_query_count()** - return the number of queries executed in the connection.
-* **get_time_execution()** - return the execution time.
-* **get_time_connection()** - return the connection time.
-* **get_time_last_query()** - return the execution time of the last query.
-* **get_affected_rows()** - return the number of affected rows in the last query.
-* **get_last_id()** - return the last id affected in the last query.
-* **get_log()** - return the log history.
-* **get_last_log()** - return the last log entry.
-* **set_log(boolean)** - enable/disable the logging.
+* **->get_cmd_connection()** - return the connection in cmd format: _user@host:port>database_.
+* **->get_last_error_id()** - return the last error id.
+* **->get_last_error()** - return the last error message.
+* **->get_last_query()** - return the last query in sql.
+* **->get_query_count()** - return the number of queries executed in the connection.
+* **->get_time_execution()** - return the execution time.
+* **->get_time_connection()** - return the connection time.
+* **->get_time_last_query()** - return the execution time of the last query.
+* **->get_affected_rows()** - return the number of affected rows in the last query.
+* **->get_last_id()** - return the last id affected in the last query.
+* **->get_log()** - return the log history.
+* **->get_last_log()** - return the last log entry.
+* **->set_log(boolean)** - enable/disable the logging.
 
+## Formatting Functions :: \`Fields\` and 'Values'
 
+**Cake** have some **_public static_** methods to formatting queries. These ones are used inside the class but also can be used to formatting a query as static functions outside.
 
-## Quoting Functions :: \`Fields\` and 'Values'
+* **->escape_string(string)** - replace special characters, alias from **_MYSQLI::real_escape_string_** if connection exists. 
+* **->quote_field(string)** - quote a string with backquote. Example: **\`string\`**
+* **->quote_value(string)** - quote a string with single quote. Example: **'string'**
+* **->quote_field_escaped(string)** - quote a escaped string with backquote. Example: **\`escaped_string\`**
+* **->quote_value_escaped(string)** - quote a escaped string with single quote. The **NULL** and text inside **&string&** will be excluded. Example: escaped_string => **'escaped_string'** or NULL=>**NULL** or  &random text&=>**random text** 
+* **->quote_fields(string)** - quote an **_array_** of strings with backquote. Example: **\`string\`,\`string\`,\`string\`**
+* **->quote_values(string)** - quote an **_array_** of strings with single quote. Example: **'string','string','string'**
+* **->quote_fields_escaped(string)** - quote an **_array_** of strings with backquote after escaped it.
+* **->quote_values_escaped(string)** - quote an **_array_** of strings with single quote after escaped it.
 
-*Cake* have some _public static_ methods to formatting queries. These ones are used inside the class but also can be used to formatting a query as static functions outside.
+## Formatting Functions :: Query
 
-* **->escape_string(string)** - replace special characters, alias from MYSQLI::real_escape_string. 
-* **->quote_field(string)** - quote a string with backquote, ex: \`string\`
-* **->quote_value(string)** - quote a string with single quote, ex: 'string'
-* **->quote_escaped_field(string)** - quote a string with backquote before escaped it.
-* **->quote_escaped_value(string)** - quote a string before escaped it.
-* **->quote_fields(string)** - quote an **_array_** of strings with backquote, ex: \`string\`,\`string\`,\`string\`
-* **->quote_values(string)** - quote an **_array_** of strings with single quote, ex: 'string','string','string'
-* **->quote_escaped_fields(string)** - quote an **_array_** of strings with backquote before escaped it
-* **->quote_escaped_values(string)** - quote an **_array_** of strings with single quote before escaped it
+**Cake** **_Formatting Functions :: Query_** are used to give format to fields and values previous of its use in a query. These functions are used to formatting the query itself.
 
-## Query Formatting Functions
-
-*Cake* **Quoting Functions** are used to give format to fields and values previous its use in a query. The *Query Formatting Functions* are used to formatting the query itself.
-
-* **->format_parameters(array('field'=>'value', 'field'=>'value')** - format a quote an return and array of type: _\`field\` = 'value'_. The **Value** field could be use also =,!=,>,<,>=,<=,is like,is not like.
-* **->format_query(string)** - parsing a query quoting ? ('') or ignoring quote #
-* **->format_where(array('field'=>'value'), operators)** - quote where with the passed operators (AND as default). NULL is prepared to ignore quoting, you can also ignore quoting usin (&), ex: &string&.
+* **->format_parameters(array('field'=>'value', 'field'=>'value')** - format a quote an return and array of type: **_\`field\` = 'value'_**. The **value** field could be use also the next operators: =,!=,>,<,>=,<=,is like,is not like.
+* **->format_simple_query(string)** - parsing a query quoting the values: **?** for single quote ('') or **#** to ignoring quote.
+* **->format_where_query(array('field'=>'value'), operators)** - quote where with the passed operators (AND as default). **NULL** is prepared to ignore quoting. You can also ignore quoting usin (&), ex: &string&.
 
 ### Examples
 
-#### parse_query()
+#### format_parameters()
 ```php
 <?php
-$sql = 'SELECT email FROM users WHERE name=? AND user_id=# OR username=?';
-$q = $db->parse_query($sql, array('marco',13));
+$q = $db->format_parameters(array("name"=>"Marco","lastname"=>"Fernandez","age"=>23));
 print_r($q);
-//SELECT email FROM users WHERE name='marco' AND user_id=13
-```
-
-#### parse_where()
-```php
-<?php
-$q = $db->parse_where(array("dinasour"=>"t-rex","superhero"=>"batman"));
-print_r($q);
-//AND as default operator, OUTPUT:
-//WHERE `dinasour` = 't-rex' AND `superhero` = 'batman' 
-
-$q = $db->parse_where(array("dinasour"=>"t-rex","superhero"=>"batman","city"=>"NULL","id_vehicle"=>"&25&","lake"=>"like %bravo%"),array("AND","OR"));
-print_r($q);
-//AND as default operator if the operators array isn't of the same size, OUTPUT:
-//WHERE `dinasour` = 't-rex' AND `superhero` = 'batman' OR `city` = NULL AND `id_vehicle` = 25 AND `lake` like '%bravo%'
-
-$q = $db->parse_where(array("dinasour"=>"t-rex","city"=>"NULL","id_vehicle"=>"> &25&"),"OR");
-print_r($q);
-//If the operator is a string is repeated in all the where query.
-//WHERE `dinasour` = 't-rex' OR `city` = NULL OR `id_vehicle` > 25
-```
-
-#### quote_parameters()
-```php
-<?php
-$q = $db->quote_parameters(array("name"=>"Marco","lastname"=>"Fernandez","age"=>23));
-print_r($q);
-//Use the internal methods quote_fields & quote_escaped_values to create an array of quoted parameters
+//Use the internal methods quote_field_escaped & quote_value_escaped to create an array of parameters already quoted:
 //Array ( 
 //[0] => `name` = 'Marco' 
 //[1] => `lastname` = 'Fernandez' 
 //[2] => `age` = '23' 
 //)
 ```
+#### format_simple_query()
+```php
+<?php
+$sql = 'SELECT email FROM users WHERE name=? AND user_id=# OR username=?';
+$q = $db->format_simple_query($sql, array('marco',13));
+print_r($q);
+//SELECT email FROM users WHERE name='marco' AND user_id=13
+```
+#### format_where_query()
+```php
+<?php
+$q = $db->format_where_query(array("dinasour"=>"t-rex","superhero"=>"batman"));
+print_r($q);
+//AND as default operator, OUTPUT:
+//WHERE `dinasour` = 't-rex' AND `superhero` = 'batman' 
+
+$q = $db->format_where_query(array("dinasour"=>"t-rex","superhero"=>"batman","city"=>"NULL","id_vehicle"=>"&25&","lake"=>"like %bravo%"),array("AND","OR"));
+print_r($q);
+//AND as default operator if the operators array isn't of the same size, OUTPUT:
+//WHERE `dinasour` = 't-rex' AND `superhero` = 'batman' OR `city` = NULL AND `id_vehicle` = 25 AND `lake` like '%bravo%'
+
+$q = $db->format_where_query(array("dinasour"=>"t-rex","city"=>"NULL","id_vehicle"=>"> &25&"),"OR");
+print_r($q);
+//If the operator is a string is repeated in all the where query.
+//WHERE `dinasour` = 't-rex' OR `city` = NULL OR `id_vehicle` > 25
+```
+
+
 
 ## Execution Operations Functions
 
