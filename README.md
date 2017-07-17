@@ -39,20 +39,21 @@ turbine::close();
 # Documentation
 
 ## Getters / Setters
-
-* **->get_cmd_connection()** - return the connection in cmd format: _user@host:port>database_.
-* **->get_last_error_id()** - return the last error id.
-* **->get_last_error()** - return the last error message.
-* **->get_last_query()** - return the last query in sql.
-* **->get_query_count()** - return the number of queries executed in the connection.
-* **->get_time_execution()** - return the execution time.
-* **->get_time_connection()** - return the connection time.
-* **->get_time_last_query()** - return the execution time of the last query.
-* **->get_affected_rows()** - return the number of affected rows in the last query.
-* **->get_last_id()** - return the last id affected in the last query.
-* **->get_log()** - return the log history.
-* **->get_last_log()** - return the last log entry.
-* **->set_log(boolean)** - enable/disable the logging.
+| Function | Descrption
+| --- | --- |
+| **->get_cmd_connection()** | return the connection in cmd format: _user@host:port>database_.
+|  **->get_last_error_id()** | return the last error id.
+|  **->get_last_error()** | return the last error message.
+|  **->get_last_query()** | return the last query in sql.
+|  **->get_query_count()** |return the number of queries executed in the connection.
+|  **->get_time_execution()** | return the execution time.
+|  **->get_time_connection()** | return the connection time.
+|  **->get_time_last_query()** | return the execution time of the last query.
+|  **->get_affected_rows()** | return the number of affected rows in the last query.
+|  **->get_last_id()** | return the last id affected in the last query.
+|  **->get_log()** | return the log history.
+|  **->get_last_log()** | return the last log entry.
+|  **->set_log(boolean)** | enable/disable the logging.
 
 ## Formatting Functions :: \`Fields\` and 'Values'
 
