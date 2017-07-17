@@ -282,4 +282,21 @@ print_r($l);
 | **->array_swish(array)** | |
 | **->array_tabled(array)** | |
 
+##  Query Functions
+
+| Function Name | Description |
+| --- | --- |
+| **->is_table(table)** | |
+| **->is_field(table,field)** | |
+| **->get_tables** | |
+| **->get_fields(table , gettype)** | |
+| **->get_next_autoincrement(table)** | |
+
+##  Table Queries Functions
+
+get_properties(table, gettype)
+get_keys
+
+
+
 
