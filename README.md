@@ -103,7 +103,7 @@ print_r($q);
 ```
 ## Execution Functions
 
-The **_Execution Functions_** realize two functions: parsing and execute the query. 
+The **_Execution Functions_** realize two functions: query format and query execution. 
 
 * **->execute (sql, parameters array)** - run a query in database, and parsing if a parameters array is given.
 * **->multi_execute(sql, parameters array)** - run multiple queries in database, and parsing if a parameters array is given.
@@ -112,11 +112,6 @@ These block of functions has also some private functions to internal use: **\_qu
 
 ## Fetch Functions
 The **_Fetch Functions_** help to transfer the results of the executed query to an array.
-
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
 
 #### Fetchs types
 | Name                | Data                                                   |
@@ -148,6 +143,24 @@ print_r($q);
 // Array ( [0] => Array ( [field] => field 001 [value] => value 001 [status] => 1 ) )
 ```
 
+## Auto-Fetching Queries Functions
+
+The **_Auto-Fetching Queries Functions_** realize three functions: query format, query execution and query fetching. Therefore, they deliver directly and array with the results of the query.
+
+| Function name                             | On Error   | On Success                          |
+| **->query(sql,params,fetch_type)**        |            |                                     |
+| **->multi_query(sql,params,fetch_type)**  |            |                                     |
+| **->query_single(sql,params)**            | bool:false | `$data[0][0]` (0 is possible)       |
+| **->query_all(sql,params)**               | bool:false | ALL (BOTH ROWS)                     |
+| **->query_rows_assoc(sql,params)**        | bool:false | `$data[#row][column_name]`          |
+| **->query_rows_num (sql,params)**         | bool:false | `$data[#row][#column]`              |
+| **->query_rows_both (sql,params)**        | bool:false | `$data[#row][column_name/#column]`  |
+| **->query_columns_assoc(sql,params)**     | bool:false | `$data[column_name][#row]`          |
+| **->query_columns_num (sql,params)**      | bool:false | `$data[#column][#row]`              |   
+| **->query_columns_both(sql,params)**      | bool:false | BOTH COLUMNS                        |
+| **->query_row(sql,params,idx)**           | bool:false | `$data[i][column_name]`             |
+| **->query_column (sql,params,idx)**       | bool:false | `$data[i][#row]`                    |
+
 ## CRUD (MySQL Basic) Operations Functions
 
 The basic mysql operations functions allow to execute the most common operations in databases.
@@ -157,7 +170,7 @@ The basic mysql operations functions allow to execute the most common operations
 * **delete(table, where = null, parameters = array())** - Delete a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
 * **select(table, data='*', where = null, operators='AND', parameters=array())** - Select registers in a table. Returning: FALSE on ERROR, Results fetched array on SUCCESS.
 
-###Examples
+### Examples
 
 ####insert()
 ```php
@@ -169,7 +182,7 @@ print_r($q);
 $l = $db->get_last_query();
 print_r($l);
 //INSERT INTO `test` (`field`,`value`,`status`) VALUES ('field 001','value 001','1')
-````
+```
 
 ####update()
 ```php
@@ -181,7 +194,7 @@ print_r($q);
 $l = $db->get_last_query();
 print_r($l);
 //UPDATE `test` SET `field` = 'field 002' WHERE `field` = 'field 001'
-````
+```
 
 ####delete()
 ```php
@@ -193,7 +206,7 @@ print_r($q);
 $l = $db->get_last_query();
 print_r($l);
 //DELETE FROM `test` WHERE `field` = 'field 002'
-````
+```
 
 ####select()
 ```php
@@ -224,4 +237,4 @@ print_r($q);
 $l = $db->get_last_query();
 print_r($l);
 //SELECT * FROM `test` WHERE `status` > 0
-````
+```
