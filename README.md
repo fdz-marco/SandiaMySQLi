@@ -115,6 +115,7 @@ The **_Fetch Functions_** help to transfer the results of the executed query to 
 
 ####Fetchs types
 |Name|Data|
+|---|---|
 |MYSQLI_ALL|$data[#row][#column/column_name]|
 |MYSQLI_ROW_ASSOC|$data[#row][column_name] ::Usually used::|
 |MYSQLI_ROW_NUM|$data[#row][#column]|
