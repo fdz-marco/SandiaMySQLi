@@ -80,7 +80,7 @@ turbine::close();
 | --- | --- |
 | **->format_parameters(array('field'=>'value', 'field'=>'value')** | format a quote an return and array of type: **_\`field\` = 'value'_**. The **value** field could be use also the next operators: =,!=,>,<,>=,<=,is like,is not like. |
 | **->format_simple_query(string)** | parsing a query quoting the values: **?** for single quote ('') or **#** to ignoring quote. |
-| **->format_where_query(array('field'=>'value'), operators)** | quote where with the passed operators (AND as default). **NULL** is prepared to ignore quoting. You can also ignore quoting using (&). Example: &string&. |
+| **->format_where_query (array('field'=>'value'), operators)** | quote where with the passed operators (AND as default). **NULL** is prepared to ignore quoting. You can also ignore quoting using (&). Example: &string&. |
 
 ### Examples
 
@@ -195,7 +195,7 @@ The basic mysql operations functions allow to execute the most common operations
 | Function Name | Description |
 | --- | --- |
 | **->select(table, data='*', where = null, operators='AND', parameters=array())** | Select registers in a table. Returning: FALSE on ERROR, or results fetched array on SUCCESS. |
-| **->insert(table, data)** - Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS. |
+| **->insert(table, data)** | Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS. |
 | **->update(table, data,where = null, parameters = array())** | Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS. |
 | **->delete(table, where = null, parameters = array())** | Delete a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS. |
 
