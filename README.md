@@ -59,7 +59,7 @@ $db->open("localhost","user","password","database");
 
 * **->format_parameters(array('field'=>'value', 'field'=>'value')** - format a quote an return and array of type: **_\`field\` = 'value'_**. The **value** field could be use also the next operators: =,!=,>,<,>=,<=,is like,is not like.
 * **->format_simple_query(string)** - parsing a query quoting the values: **?** for single quote ('') or **#** to ignoring quote.
-* **->format_where_query(array('field'=>'value'), operators)** - quote where with the passed operators (AND as default). **NULL** is prepared to ignore quoting. You can also ignore quoting usin (&), ex: &string&.
+* **->format_where_query(array('field'=>'value'), operators)** - quote where with the passed operators (AND as default). **NULL** is prepared to ignore quoting. You can also ignore quoting using (&). Example: &string&.
 
 ### Examples
 
@@ -101,15 +101,14 @@ print_r($q);
 //If the operator is a string is repeated in all the where query.
 //WHERE `dinasour` = 't-rex' OR `city` = NULL OR `id_vehicle` > 25
 ```
+## Execution Functions
 
+The **_Execution Functions_** realize two functions: parsing and execute the query. 
 
+* **->execute (sql, parameters array)** - run a query in database, and parsing if a parameters array is given.
+* **->multi_execute(sql, parameters array)** - run multiple queries in database, and parsing if a parameters array is given.
 
-## Execution Operations Functions
-
-The execution queries realize two functions: parsing and execute the query. 
-
-* **execute (sql,parameters array)** - run a query in database, and parsing if a parameters array is given.
-* **multi_execute(sql, parameters array)** - run multiple queries in database, and parsing if a parameters array is given.
+These block of functions has also some private functions to internal use: **_query(sql)**, **_multi_query(sql)**, **_log(string)**.
 
 ###Examples
 
