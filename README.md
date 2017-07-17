@@ -13,11 +13,27 @@ This project have a MIT License, so you can modify it, redistribute it, print it
 
 ## How to setup Turbine MySQLi
 
+Turbine MySQLi is possible to be used as instance of an object:
 ```php
 <?php
 require_once 'Turbine_MySQLi_Wrapper.php';
+
 $db = new TurbineMySQL();
 $db->open("localhost","user","password","database");
+$q = $db->query("SELECT * FROM `log_curl`");
+echo $db->array_tabled($q);
+$db->close();
+```
+
+Or directly calling the static functions of the class:
+```php
+<?php
+require_once 'Turbine_MySQLi_Wrapper.php';
+
+turbine::open("localhost","user","password","database");	
+$q = turbine::query("SELECT * FROM `log_curl`");
+echo turbine::array_tabled($q);
+turbine::close();
 ```
 
 # Documentation
