@@ -113,6 +113,11 @@ These block of functions has also some private functions to internal use: **\_qu
 ## Fetch Functions
 The **_Fetch Functions_** help to transfer the results of the executed query to an array.
 
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3
+
 ####Fetchs types
 |Name|Data|
 |---|---|
