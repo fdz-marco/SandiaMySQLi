@@ -160,11 +160,15 @@ The **_Auto-Fetching Queries Functions_** realize three functions: query format,
 | **->query_columns_num (sql,params)**      | bool:false | `$data[#column][#row]`              |   
 | **->query_columns_both(sql,params)**      | bool:false | BOTH COLUMNS                        |
 | **->query_row(sql,params,idx)**           | bool:false | `$data[i][column_name]`             |
-| **->query_column (sql,params,idx)**       | bool:false | `$data[i][#row]`                    |
+| **->query_column(sql,params,idx)**        | bool:false | `$data[i][#row]`                    |
+| **->sp(sp,params,fetch_type)**            | bool:false |                                     |
 
-## CRUD (MySQL Basic) Operations Functions
+##  MySQL Basic Functions :: CRUD/BREAD
 
-The basic mysql operations functions allow to execute the most common operations in databases.
+The basic mysql operations functions allow to execute the most common operations in databases. The common operations normally are called as:
+* **(C)**reate, **(R)**ead, **(U)**pdate, **(D)**elete; or
+* **(B)**rowse, **(R)**ead, **(E)**dit, **(A)**dd, **(D)**elete
+
 
 * **insert(table, data)** - Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS.
 * **update(table, data, where = null, parameters = array())** - Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
@@ -173,7 +177,7 @@ The basic mysql operations functions allow to execute the most common operations
 
 ### Examples
 
-####insert()
+#### insert()
 ```php
 <?php
 $q = $db->insert("test",array("field"=>"field 001","value"=>"value 001","status"=>"1"));
@@ -185,7 +189,7 @@ print_r($l);
 //INSERT INTO `test` (`field`,`value`,`status`) VALUES ('field 001','value 001','1')
 ```
 
-####update()
+#### update()
 ```php
 <?php
 $q = $db->update("test",array("field"=>"field 002"),array("field"=>"field 001"));
@@ -197,7 +201,7 @@ print_r($l);
 //UPDATE `test` SET `field` = 'field 002' WHERE `field` = 'field 001'
 ```
 
-####delete()
+#### delete()
 ```php
 <?php
 $q = $db->delete("test",array("field"=>"field 002"));
@@ -209,7 +213,7 @@ print_r($l);
 //DELETE FROM `test` WHERE `field` = 'field 002'
 ```
 
-####select()
+#### select()
 ```php
 <?php
 //---------------- Method 1
