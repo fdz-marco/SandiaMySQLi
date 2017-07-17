@@ -1,23 +1,22 @@
-### Welcome to the Sandia MySQLi Database Wrapper 
+### Welcome to the Turbine MySQLi DB Wrapper 
 
 # What is this?
-![Sandia MySQLi](https://raw.github.com/inventtoo/SandiaMySQLi/master/design/SandiaMySQLi_mini.png "Logo Sandia MySQLi") *Sandia MySQLi* is a wrapper for MySQL Databases written in PHP to make simple some of the more recurrent tasks in databases management.
+![Turbine MySQLi](https://raw.github.com/inventtoo/SandiaMySQLi/master/design/SandiaMySQLi_mini.png "Logo Sandia MySQLi") 
 
-*Sandia MySQLi Database Wrapper* is maintained by Marco Fernandez member of the team [inventtoo.com](http://inventtoo.com), please feel free to visite us and send your comments to us.
+*Turbine MySQLi DB Wrapper* is a wrapper for MySQL Databases written in PHP to make simple some of the more recurrent tasks in databases management.
+
+*Turbine MySQLi DB Wrapper* is maintained by Marco Fernandez member of the team [inventtoo.com](http://inventtoo.com), please feel free to visite us and send your comments to us.
 
 This project have a MIT License, so you can modify it, redistribute it, print it, burn it, or whatever you want.
 
-# What make Sandia MySQL better?
-It's just lighter and smaller than the most libraries. And, who the hell don't love the watermelons?
-
 # Configuration
 
-## How to setup Sandia MySQL
+## How to setup Turbine MySQLi
 
 ```php
 <?php
-require_once 'Sandia_MySQLi_Wrapper.php';
-$db = new SandiaMySQL();
+require_once 'Turbine_MySQLi_Wrapper.php';
+$db = new TurbineMySQL();
 $db->open("localhost","user","password","database");
 ```
 
@@ -41,7 +40,7 @@ $db->open("localhost","user","password","database");
 
 ## Formatting Functions :: \`Fields\` and 'Values'
 
-**Cake** have some **_public static_** methods to formatting queries. These ones are used inside the class but also can be used to formatting a query as static functions outside.
+**Turbine** have some **_public static_** methods to formatting queries. These ones are used inside the class but also can be used to formatting a query as static functions outside.
 
 * **->escape_string(string)** - replace special characters, alias from **_MYSQLI::real_escape_string_** if connection exists. 
 * **->quote_field(string)** - quote a string with backquote. Example: **\`string\`**
@@ -55,7 +54,7 @@ $db->open("localhost","user","password","database");
 
 ## Formatting Functions :: Query
 
-**Cake** **_Formatting Functions :: Query_** are used to give format to fields and values previous of its use in a query. These functions are used to formatting the query itself.
+**Turbine** **_Formatting Functions :: Query_** are used to give format to fields and values previous of its use in a query. These functions are used to formatting the query itself.
 
 * **->format_parameters(array('field'=>'value', 'field'=>'value')** - format a quote an return and array of type: **_\`field\` = 'value'_**. The **value** field could be use also the next operators: =,!=,>,<,>=,<=,is like,is not like.
 * **->format_simple_query(string)** - parsing a query quoting the values: **?** for single quote ('') or **#** to ignoring quote.
@@ -165,9 +164,7 @@ The **_Auto-Fetching Queries Functions_** realize three functions: query format,
 
 ##  MySQL Basic Functions :: CRUD/BREAD
 
-The basic mysql operations functions allow to execute the most common operations in databases. The common operations normally are called as:
-* **(C)**reate, **(R)**ead, **(U)**pdate, **(D)**elete; or
-* **(B)**rowse, **(R)**ead, **(E)**dit, **(A)**dd, **(D)**elete
+The basic mysql operations functions allow to execute the most common operations in databases. The common operations normally are called as: **(C)** reate, **(R)** ead, **(U)** pdate, **(D)** elete; or **(B)** rowse, **(R)** ead, **(E)** dit, **(A)** dd, **(D)** elete.
 
 
 * **insert(table, data)** - Insert a register into a table. Returning: FALSE on ERROR, TRUE/Last ID(Auto-increment) on SUCCESS.
