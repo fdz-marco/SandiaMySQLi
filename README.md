@@ -1,7 +1,7 @@
 ### Welcome to the Turbine MySQLi DB Wrapper 
 
 # What is this?
-![Turbine MySQLi] (https://raw.github.com/inventtoo/SandiaMySQLi/master/design/SandiaMySQLi_mini.png "Logo Sandia MySQLi") 
+![Turbine MySQLi](https://raw.github.com/inventtoo/SandiaMySQLi/master/design/SandiaMySQLi_mini.png "Logo Sandia MySQLi") 
 
 *Turbine MySQLi DB Wrapper* is a wrapper for MySQL Databases written in PHP to make simple some of the more recurrent tasks in databases management.
 
@@ -171,7 +171,6 @@ The basic mysql operations functions allow to execute the most common operations
 * **update(table, data,where = null, parameters = array())** - Update a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
 * **delete(table, where = null, parameters = array())** - Delete a register in a table. Returning: FALSE on ERROR, Affected rows (0 is possible) on SUCCESS.
 
-
 ### Examples
 
 #### select()
@@ -204,7 +203,6 @@ $l = $db->get_last_query();
 print_r($l);
 //SELECT * FROM `test` WHERE `status` > 0
 ```
-
 #### insert()
 ```php
 <?php
@@ -216,7 +214,6 @@ $l = $db->get_last_query();
 print_r($l);
 //INSERT INTO `test` (`field`,`value`,`status`) VALUES ('field 001','value 001','1')
 ```
-
 #### update()
 ```php
 <?php
@@ -228,7 +225,6 @@ $l = $db->get_last_query();
 print_r($l);
 //UPDATE `test` SET `field` = 'field 002' WHERE `field` = 'field 001'
 ```
-
 #### delete()
 ```php
 <?php
@@ -240,4 +236,17 @@ $l = $db->get_last_query();
 print_r($l);
 //DELETE FROM `test` WHERE `field` = 'field 002'
 ```
+
+##  Commit / Roll-back / Rewind / Free
+
+* **->transaction_begin()**
+* **->transaction_commit()**
+* **->transaction_rollback()**
+* **->rewind()**
+* **->free()**
+
+##  Array Operations 
+* **->array_swish(array)** -
+* **->array_tabled(array)** -
+
 
