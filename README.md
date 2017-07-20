@@ -312,8 +312,10 @@ var_dump( turbine::get_fields("table_name",turbine::FIELDS_REQUIRED) );
 ```
 ##  Table Queries Functions
 
-get_properties(table, gettype)
-get_keys
+| Function Name | Description |
+| --- | --- |
+|  **->get_properties(table, gettype)** | Returns an array with the indexes: TABLE_NAME,	COLUMN_NAME,	COLUMN_ID,	COLUMN_TYPE,	DATA_TYPE,	DATA_LENGHT,	UNSIGNED,	ZEROFILLED,	ALLOW_NULL,	COLUMN_DEFAULT,	CONSTRAINT_TYPE,	FOREIGN_DATABASE,	FOREIGN_TABLE,	FOREIGN_COLUMN,	CONSTRAINTS; for each of the fields in the table. |
+|  **->get_keys(table, gettype, constraints)** | |
 
 
 
