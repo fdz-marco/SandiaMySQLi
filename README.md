@@ -286,11 +286,21 @@ print_r($l);
 
 | Function Name | Description |
 | --- | --- |
-| **->is_table(table)** | |
-| **->is_field(table,field)** | |
-| **->get_tables** | |
-| **->get_fields(table , gettype)** | |
-| **->get_next_autoincrement(table)** | |
+| **->is_table(table)** |Verify if the table exist in the database. |
+| **->is_field(table,field)** |Verifiy if the field exists in the table. |
+| **->get_tables** |Get all the table names in the database. |
+| **->get_fields(table , gettype)** |Return all the fields of a table.|
+| **->get_next_autoincrement(table)** | Get the table next autoincrement number.|
+
+#### Get types
+| Get Type Name       | Returned Data                                          |
+| ------------------- |------------------------------------------------------- |
+| FIELDS_ALL          | |
+| FIELDS_AUTOFILLED   | |
+| FIELDS_REQUIRED     | |
+| FIELDS_PRIMARY      | |
+| FIELDS_UNIQUE       | |
+| FIELDS_FOREIGN      | |
 
 ##  Table Queries Functions
 
