@@ -302,6 +302,14 @@ print_r($l);
 | FIELDS_UNIQUE       | |
 | FIELDS_FOREIGN      | |
 
+#### Examples
+```php
+<?php
+turbine::open(DBHOST,DBUSER,DBPSWD,DBNAME);	
+var_dump( turbine::get_tables() );
+var_dump( turbine::get_fields("table_name") );
+var_dump( turbine::get_fields("table_name",turbine::FIELDS_REQUIRED) );
+```
 ##  Table Queries Functions
 
 get_properties(table, gettype)
