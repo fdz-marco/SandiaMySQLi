@@ -315,8 +315,12 @@ var_dump( turbine::get_fields("table_name",turbine::FIELDS_REQUIRED) );
 | Function Name | Description |
 | --- | --- |
 |  **->get_properties(table, gettype)** | Returns an array with the indexes: TABLE_NAME,	COLUMN_NAME,	COLUMN_ID,	COLUMN_TYPE,	DATA_TYPE,	DATA_LENGHT,	UNSIGNED,	ZEROFILLED,	ALLOW_NULL,	COLUMN_DEFAULT,	CONSTRAINT_TYPE,	FOREIGN_DATABASE,	FOREIGN_TABLE,	FOREIGN_COLUMN,	CONSTRAINTS; for each field in the table. |
-|  **->get_keys(table, gettype, constraints)** | |
+|  **->get_keys(table, gettype, constraints)** | Returns an array with the indexes: COLUMN_NAME,	CONSTRAINT_NAME,	CONSTRAINT_TYPE,	COLUMN_ID,	FOREIGN_DATABASE,	FOREIGN_TABLE,	FOREIGN_COLUMN; for each key in the table. |
 
+##  Special Queries Functions
 
-
-
+| Function Name | Description |
+| --- | --- |
+| **->table_backup(table, backup_name)** | |
+| **->table_drop(table)** | |
+| **->table_create(table, fields)** | |
